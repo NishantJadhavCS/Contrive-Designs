@@ -12,16 +12,16 @@ import Footer_m from "./components/Footer_m";
 function App() {
   return (
     <>
-      {/* <Navbar /> */}
-      <Navbar_m />
+      <Navbar />
+      {/* <Navbar_m /> */}
       <main>
-        <Hero_m />
-        {/* <Hero />
+        {/* <Hero_m /> */}
+        <Hero />
         <Services />
         <Highlights />
-        <Testimonials /> */}
-        {/* <Footer /> */}
-        <Footer_m />
+        <Testimonials />
+        <Footer />
+        {/* <Footer_m /> */}
       </main>
     </>
   );
