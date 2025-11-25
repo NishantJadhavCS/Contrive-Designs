@@ -1,0 +1,589 @@
+:root {
+    /* palette & tokens */
+    --clr-primary-dark: #0f2230;
+    --clr-primary: #1a374d;
+    --clr-primary-light: #2c6e91;
+    --clr-primary-xlight: #e8f1f5;
+    --clr-surface-50: #ebebeb;
+    --clr-accent-dark: #b87a16;
+    --clr-accent: #f5a623;
+    --clr-accent-light: #fde8bb;
+    --clr-text-dark: #1e293b;
+    --clr-text-light: #64748b;
+    --clr-bg: #fafafa;
+    --clr-surface: #ffffff;
+    --clr-border: #e5e7eb;
+    --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.04);
+    --shadow-medium: 0 8px 24px rgba(0, 0, 0, 0.08);
+    --shadow-strong: 0 12px 32px rgba(0, 0, 0, 0.12);
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --motion-spring: cubic-bezier(.2, .9, .3, 1);
+}
+
+/* Reset / base */
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Footer container */
+.footer-container {
+    background: var(--clr-bg);
+    color: var(--clr-text-dark);
+    border-top: 1px solid var(--clr-border);
+    box-shadow: var(--shadow-soft);
+    padding: 48px 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Desktop grid (4 columns) */
+.footer-inner {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    /* Logo | Quick Links | Contact | Map */
+    gap: 28px;
+    align-items: start;
+    justify-items: stretch;
+}
+
+/* Generic column */
+.footer-col {}
+
+/* ---------------- LEFT: Brand + socials ---------------- */
+.footer-left {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+/* Support both class names in case components use .brand or .brand-footer */
+.brand-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    position: relative;
+    /* keep children in normal flow */
+    z-index: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* Logo - ensure block behavior and spacing below to avoid overlap */
+.brand-logo-footer {
+    display: block !important;
+    position: relative !important;
+    float: none !important;
+    width: 260px;
+    max-width: 100%;
+    height: auto;
+    margin: 0 0 6px 0;
+    /* space below logo */
+    z-index: 1;
+}
+
+/* tagline below logo */
+.brand-tagline {
+    margin: 0;
+    color: var(--clr-text-light);
+    font-size: 14px;
+    line-height: 1.45;
+    max-width: 280px;
+    display: block !important;
+    z-index: 1;
+}
+
+/* Social icons row (always below tagline) */
+.socials {
+    margin-top: 8px !important;
+    display: flex !important;
+    gap: 14px !important;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    clear: both !important;
+    z-index: 2 !important;
+}
+
+/* Social button (circular) */
+.social {
+    width: 46px;
+    height: 46px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--clr-surface);
+    border: 1px solid var(--clr-border);
+    box-shadow: var(--shadow-soft);
+    color: var(--clr-accent-dark);
+    font-size: 22px;
+    text-decoration: none;
+    transition:
+        transform 220ms var(--motion-spring),
+        background 220ms var(--motion-spring),
+        color 220ms var(--motion-spring),
+        box-shadow 220ms var(--motion-spring);
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Font Awesome icon inside */
+.social i {
+    pointer-events: none;
+}
+
+/* Hover/Focus: grow & use accent */
+.social:hover,
+.social:focus {
+    transform: scale(1.1);
+    background: var(--clr-accent);
+    color: var(--clr-surface);
+    box-shadow: var(--shadow-medium);
+    outline: none;
+}
+
+/* Heading for the links */
+.footer-heading {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--clr-text-dark);
+    margin: 0 0 10px 0;
+}
+
+/* Vertical nav */
+.footer-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-nav a {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 6px;
+    position: relative;
+    text-decoration: none;
+    color: var(--clr-text-dark);
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    transition:
+        color 0.25s ease,
+        transform 0.25s var(--motion-spring);
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Underline (hidden by default) */
+.footer-nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 6px;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--clr-primary), var(--clr-accent));
+    border-radius: 3px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.28s ease;
+}
+
+/* Hover/focus animation */
+.footer-nav a:hover,
+.footer-nav a:focus {
+    color: var(--clr-primary);
+    font-weight: 600;
+    transform: translateX(4px);
+}
+
+.footer-nav a:hover::after,
+.footer-nav a:focus::after {
+    transform: scaleX(1);
+}
+
+/* ---------------- CONTACT column ---------------- */
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.footer-contact .footer-heading {
+    margin-bottom: 12px;
+}
+
+.footer-contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-contact-list a {
+    color: var(--clr-text-dark);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 400;
+    transition: color 0.2s ease;
+}
+
+.footer-contact-list a:hover,
+.footer-contact-list a:focus {
+    color: var(--clr-primary);
+    outline: none;
+}
+
+/* ---------------- RIGHT: Map ---------------- */
+.footer-right {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+
+.map-wrap {
+    width: 100%;
+    max-width: 340px;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--clr-border);
+}
+
+/* iframe styling */
+.footer-map {
+    width: 100%;
+    height: 200px;
+    border: 0;
+    display: block;
+    object-fit: cover;
+}
+
+/* ---------------- Bottom row ---------------- */
+.footer-bottom {
+    margin-top: 28px;
+    border-top: 1px solid var(--clr-border);
+    padding-top: 18px;
+    text-align: center;
+    color: var(--clr-text-light);
+    font-size: 13px;
+}
+
+/* Focus styles accessible */
+a:focus,
+button:focus {
+    outline: 3px solid var(--clr-accent-light);
+    outline-offset: 2px;
+}
+
+/* ===================== Responsive (mobile/stack) ===================== */
+
+/* Mobile / small screens stack everything */
+@media (max-width: 880px) {
+    .footer-container {
+        padding: 28px 16px;
+    }
+
+    .footer-inner {
+        grid-template-columns: 1fr;
+        /* single column stack */
+        gap: 18px;
+        align-items: center;
+        justify-items: center;
+    }
+
+    /* center left column on mobile */
+    .footer-left {
+        align-items: center;
+        text-align: center;
+        gap: 12px;
+    }
+
+    .brand,
+    .brand-footer {
+        align-items: center;
+        text-align: center;
+    }
+
+    .brand-logo-footer {
+        width: 180px;
+    }
+
+    .brand-tagline {
+        max-width: 320px;
+        font-size: 14px;
+        color: var(--clr-text-light);
+    }
+
+    .socials {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .social {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+
+    /* center nav & enlarge hit area */
+    .footer-center {
+        width: 100%;
+        justify-content: center;
+        padding-top: 0;
+    }
+
+    .footer-nav {
+        align-items: center;
+        gap: 12px;
+    }
+
+    .footer-nav a {
+        font-size: 17px;
+        padding: 12px 10px;
+        /* tappable area */
+        text-align: center;
+    }
+
+    .footer-nav a::after {
+        bottom: -6px;
+    }
+
+    /* Map full-width */
+    .footer-right {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .map-wrap {
+        max-width: 100%;
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .footer-map {
+        width: 100%;
+        height: 220px;
+    }
+
+    .footer-bottom {
+        margin-top: 22px;
+        padding-top: 16px;
+    }
+}
+
+/* Smaller phones tweak */
+@media (max-width: 480px) {
+    .brand-logo-footer {
+        width: 150px;
+    }
+
+    .brand-tagline {
+        font-size: 13px;
+        max-width: 300px;
+    }
+
+    .social {
+        width: 48px;
+        height: 48px;
+        font-size: 18px;
+    }
+
+    .footer-nav a {
+        font-size: 16px;
+        padding: 14px 12px;
+    }
+
+    .footer-map {
+        height: 180px;
+    }
+}
+
+/* Medium tablets: collapse map below columns */
+@media (min-width: 881px) and (max-width: 1100px) {
+    .footer-inner {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .footer-right {
+        grid-column: 1 / -1;
+        justify-content: center;
+    }
+
+    .map-wrap {
+        max-width: 420px;
+        margin: 0 auto;
+    }
+
+    .footer-left {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .brand-logo-footer {
+        width: 220px;
+    }
+}
+
+/* Accessibility helper: skip link (if you use one) */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.skip-link:focus {
+    left: 8px;
+    top: 8px;
+    width: auto;
+    height: auto;
+    padding: 8px 12px;
+    background: var(--clr-surface);
+    border-radius: 6px;
+    box-shadow: var(--shadow-soft);
+    z-index: 9999;
+}
+
+/* Ensure map iframe accepts pointer events on mobile */
+.map-wrap iframe,
+.map-wrap .footer-map {
+    pointer-events: auto;
+}
+
+/* Ensure heading is block and separated from nav */
+.footer-heading {
+    display: block;
+    /* make it a block-level element */
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--clr-text-dark);
+    margin: 0 0 12px 0;
+    /* space below heading */
+}
+
+/* Guarantee nav appears as a vertical block under the heading */
+.footer-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* keep nav left-aligned on desktop */
+.footer-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: flex-start;
+}
+
+/* Contact item: phone icon + number line */
+.footer-contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* ============================= */
+/* CONTACT ICON = SOCIAL BUTTON  */
+/* ============================= */
+.contact-item a {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--clr-text-dark);
+    font-weight: 500;
+    font-size: 16px;
+    padding: 6px 0;
+    transition: color 0.25s ease, transform 0.25s var(--motion-spring);
+}
+
+/* Circle phone icon styled same as .social */
+.contact-icon {
+    width: 34px;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--clr-surface);
+    border: 1px solid var(--clr-border);
+    box-shadow: var(--shadow-soft);
+    color: var(--clr-accent-dark);
+    font-size: 18px;
+    transition:
+        transform 220ms var(--motion-spring),
+        background 220ms var(--motion-spring),
+        color 220ms var(--motion-spring),
+        box-shadow 220ms var(--motion-spring);
+}
+
+/* Hover matches socials */
+.contact-item a:hover .contact-icon,
+.contact-item a:focus .contact-icon {
+    transform: scale(1.1);
+    background: var(--clr-accent);
+    color: var(--clr-surface);
+    box-shadow: var(--shadow-medium);
+}
+
+.contact-item a:hover,
+.contact-item a:focus {
+    color: var(--clr-primary);
+    transform: translateX(4px);
+    font-weight: 600;
+}
+
+/* Make sure the phone icon itself doesn't capture pointer */
+.contact-icon i {
+    pointer-events: none;
+}
+
+/* Mobile: center headings and nav */
+@media (max-width: 880px) {
+
+    .footer-center,
+    .footer-contact {
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-nav,
+    .footer-contact-list {
+        align-items: center;
+    }
+
+    .contact-item a {
+        justify-content: center;
+    }
+}

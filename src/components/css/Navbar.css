@@ -1,0 +1,348 @@
+/* ========================= */
+/* ROOT VARIABLES            */
+/* ========================= */
+:root {
+    --header-height: 90px;
+    --navbar-inner-max-w: 1600px;
+
+    --clr-primary: #1a374d;
+    --clr-accent: #406882;
+    --clr-accent-dark: #1a374d;
+    --clr-text-light: #6b7280;
+    --clr-border: #e5e7eb;
+    --clr-surface: #ffffff;
+
+    --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.04);
+    --motion-fast: 180ms;
+    --motion-medium: 260ms;
+    --motion-spring: cubic-bezier(.2, .8, .25, 1);
+}
+
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--header-height);
+    width: 100%;
+    background: var(--clr-surface);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--clr-border);
+    box-shadow: var(--shadow-soft);
+    z-index: 9999;
+}
+
+.header-inner {
+    max-width: var(--navbar-inner-max-w);
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 100%;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 50px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand-logo {
+    height: 42px;
+    width: auto;
+}
+
+.desktop-only {
+    display: flex;
+    justify-content: center;
+}
+
+/* ========================= */
+/* NAV LINKS (DESKTOP)       */
+/* ========================= */
+
+.nav-links {
+    display: inline-flex;
+    gap: 18px;
+    list-style: none;
+    padding: 8px 10px 10px;
+    transition:
+        color 0.25s ease,
+        transform 0.25s var(--motion-spring);
+}
+
+.nav-links a {
+    display: inline-flex;
+    /* allow vertical movement */
+    align-items: center;
+    padding: 8px 10px 7px;
+    /* bottom padding creates space to float */
+    position: relative;
+    text-decoration: none;
+    color: var(--clr-text-light);
+    font-weight: 600;
+    transition:
+        color 0.25s ease,
+        transform 0.25s var(--motion-spring);
+}
+
+/* ========================= */
+/* UNDERLINE ANIMATION       */
+/* ========================= */
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--clr-primary), var(--clr-accent));
+    border-radius: 3px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+    color: var(--clr-primary);
+    transform: translateY(-2px) scale(0.98);
+}
+
+.nav-links a:hover::after,
+.nav-links a:focus::after {
+    transform: scaleX(1);
+}
+
+/* ========================= */
+/* Desktop Contact Button    */
+/* ========================= */
+
+.btn-contact {
+    position: relative;
+    display: inline-block;
+    padding: 12px 24px;
+    border: 2px solid var(--clr-accent-dark);
+    border-radius: 15px;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--clr-accent-dark);
+    background-color: #ffffff;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1;
+    transition: color 0.25s ease-in, border-color 0.25s ease-in,
+        transform 0.25s cubic-bezier(0.2, 0.8, 0.25, 1),
+        box-shadow 0.25s ease;
+}
+
+.btn-contact::before,
+.btn-contact::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) scaleY(1) scaleX(1.25);
+    width: 140%;
+    height: 180%;
+    border-radius: 50%;
+    display: block;
+    transition: all 0.6s 0.05s cubic-bezier(0.55, 0, 0.1, 1);
+    z-index: -1;
+}
+
+.btn-contact::before {
+    top: 100%;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.btn-contact::after {
+    top: 180%;
+    background-color: var(--clr-accent);
+    transform: translateX(-50%) scaleY(1) scaleX(1.45);
+}
+
+/* hover animation */
+.btn-contact:hover,
+.btn-contact:focus {
+    color: #ffffff;
+    border-color: var(--clr-accent);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(26, 55, 77, 0.1);
+    outline: none;
+}
+
+.btn-contact:hover::before {
+    top: -35%;
+    background-color: var(--clr--light);
+    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+}
+
+.btn-contact:hover::after {
+    top: -45%;
+    background-color: var(--clr-accent);
+    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+}
+
+/* pressed state */
+.btn-contact:active {
+    transform: translateY(-1px) scale(0.98);
+    box-shadow: 0 4px 10px rgba(26, 55, 77, 0.08);
+}
+
+/* accessible focus ring */
+.btn-contact:focus-visible {
+    box-shadow: 0 0 0 3px rgba(26, 55, 77, 0.25);
+}
+
+/* ========================= */
+/* MOBILE ONLY BEHAVIOR      */
+/* ========================= */
+
+.menu-toggle-mobile {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    color: var(--clr-text-light);
+}
+
+/* MOBILE — Hide desktop */
+@media (max-width: 860px) {
+    .desktop-only {
+        display: none !important;
+    }
+
+    /* Show hamburger */
+    .menu-toggle-mobile {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .header-inner {
+        grid-template-columns: auto 1fr auto;
+        height: 64px;
+        padding: 0 16px;
+        display: flex;
+        align-items: flex-end;
+    }
+
+    /* Center logo on mobile */
+    .brand {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+.nav-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 9998;
+}
+
+.nav-overlay.show {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Drawer */
+.mobile-drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: 100vh;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.08);
+    transform: translateX(-100%);
+    transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.25, 1);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.mobile-drawer.open {
+    transform: translateX(0);
+}
+
+/* Close button */
+.drawer-close-btn {
+    background: transparent;
+    border: none;
+    font-size: 26px;
+    cursor: pointer;
+    color: #444;
+    align-self: flex-end;
+}
+
+/* Drawer links */
+.drawer-links {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.drawer-links a {
+    text-decoration: none;
+    color: #111;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+/* Drawer Contact Button */
+.drawer-contact-btn {
+    margin-top: 6rem;
+    display: block;
+    background: var(--clr-accent);
+    color: white;
+    padding: 14px;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* ========================= */
+/* FLOAT ANIMATION — LOGO    */
+/* ========================= */
+
+.brand {
+    transition: transform 0.3s var(--motion-spring), filter 0.3s ease;
+}
+
+.brand:hover,
+.brand:focus {
+    transform: translateY(-4px) scale(1.03);
+    filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.12));
+}
+
+
+/* ========================= */
+/* FLOAT ANIMATION — NAV LINKS */
+/* ========================= */
+
+.nav-links a {
+    transition:
+        color 0.25s ease,
+        transform 0.25s var(--motion-spring);
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+    transform: translateY(-4px) scale(1.05);
+    color: var(--clr-primary);
+}
