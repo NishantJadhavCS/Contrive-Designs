@@ -1,0 +1,344 @@
+/* PackageModal.css - styles for modal only */
+
+.package-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(12, 16, 24, 0.55);
+    display: grid;
+    place-items: center;
+    z-index: 10001;
+    padding: 2rem;
+}
+
+.package-modal {
+    position: relative;
+    width: 100%;
+    max-width: 980px;
+    background: var(--clr-surface, #fff);
+    border-radius: 14px;
+    box-shadow: 0 30px 60px rgba(12, 18, 28, 0.3);
+    overflow: hidden;
+    transform-origin: center;
+    /* subtle entrance (can be enhanced with JS/animation) */
+}
+
+.package-modal__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.package-modal__title {
+    margin: 0;
+    font-size: 1.25rem;
+    color: var(--clr-primary);
+}
+
+.package-modal__close {
+    background: transparent;
+    border: none;
+    font-size: 1.25rem;
+    cursor: pointer;
+    line-height: 1;
+    padding: 6px;
+    border-radius: 8px;
+}
+
+.package-modal__close:focus {
+    outline: 2px solid rgba(120, 8, 208, 0.18);
+    outline-offset: 2px;
+}
+
+.package-modal__body {
+    padding: 1.25rem 1.5rem 1.75rem;
+}
+
+.package-modal__desc {
+    margin: 0 0 0.5rem;
+    color: var(--clr-text-dark);
+}
+
+.package-modal__price {
+    margin: 0 0 1rem;
+    font-weight: 700;
+}
+
+.package-modal__table-wrap {
+    overflow: auto;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    margin-top: 0.5rem;
+}
+
+.package-modal__table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 720px;
+    background: transparent;
+}
+
+.package-modal__table th,
+.package-modal__table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    vertical-align: middle;
+}
+
+.package-modal__table thead th {
+    background: rgba(0, 0, 0, 0.03);
+    font-weight: 700;
+}
+
+.package-modal__actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+/* reuse your .button / .btn-outline styles if present; otherwise provide minimal fallback */
+.button {
+    --clr: var(--clr-primary, #6c4cff);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background-color: var(--clr);
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1.25rem;
+    border-radius: 999px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 180ms ease, filter 160ms ease;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    filter: brightness(0.95);
+}
+
+.btn-outline {
+    background: #fff;
+    color: var(--clr-primary, #6c4cff);
+    border: 2px solid var(--clr-border, #e5e7eb);
+    padding: 0.55rem 1.1rem;
+}
+
+/* responsive */
+@media (max-width: 720px) {
+    .package-modal {
+        max-width: 100%;
+        border-radius: 12px;
+    }
+
+    .package-modal__table {
+        min-width: 520px;
+    }
+
+    .package-modal__body {
+        padding: 1rem;
+    }
+}
+
+/* =========
+   Modal sizing + scroll
+   ========= */
+
+/* keep modal visible inside viewport and scroll its content when tall */
+.package-modal {
+    /* limit height so modal never goes under the browser top/bottom */
+    max-height: calc(100vh - 120px);
+    overflow: auto;
+    /* enable modal body scrolling if content is tall */
+}
+
+/* overlay padding narrower on small screens so modal sits nicely */
+.package-modal-overlay {
+    padding: 1.25rem;
+    /* reduced from 2rem for small devices */
+}
+
+/* make close button easier to tap */
+.package-modal__close {
+    padding: 10px;
+    font-size: 1.25rem;
+}
+
+/* table wrapper: allow both horizontal and vertical scroll on small screens */
+.package-modal__table-wrap {
+    max-height: 45vh;
+    /* keep table from pushing modal off-screen */
+    overflow: auto;
+}
+
+/* prevent table forcing huge min-width on narrow viewports */
+.package-modal__table {
+    min-width: 520px;
+    /* default for desktop/tablet */
+    width: 100%;
+    table-layout: auto;
+    word-break: break-word;
+}
+
+/* =========
+   Responsive tweaks
+   ========= */
+
+@media (max-width: 720px) {
+    .package-modal-overlay {
+        padding: 0.75rem;
+    }
+
+    .package-modal {
+        max-width: 100%;
+        border-radius: 12px;
+        margin: 0 0.25rem;
+        max-height: calc(100vh - 80px);
+        /* slightly larger usable area on mobile */
+    }
+
+    .package-modal__head {
+        padding: 0.75rem 1rem;
+    }
+
+    .package-modal__body {
+        padding: 0.75rem 1rem 1rem;
+    }
+
+    .package-modal__table {
+        /* allow horizontal scrolling of wide table while keeping it usable */
+        min-width: 420px;
+    }
+
+    .package-modal__table-wrap {
+        max-height: 40vh;
+        /* reduce height so actions remain visible */
+    }
+
+    .package-modal__actions {
+        justify-content: stretch;
+    }
+
+    /* make buttons full-width stack for easier tapping */
+    .package-modal__actions .button,
+    .package-modal__actions .btn-outline {
+        flex: 1 1 100%;
+        display: inline-flex;
+        justify-content: center;
+        padding: 0.75rem 1rem;
+    }
+
+    .package-modal__close {
+        /* bigger touch area */
+        padding: 8px;
+    }
+}
+
+/* Small phones */
+@media (max-width: 420px) {
+    .package-modal__table {
+        min-width: 360px;
+    }
+
+    .package-modal__table-wrap {
+        max-height: 36vh;
+    }
+
+    .package-modal {
+        max-height: calc(100vh - 70px);
+    }
+}
+
+/* header: title centered, close positioned top-right */
+.package-modal__head {
+    position: relative;
+    /* so we can absolutely position the X */
+    display: block;
+    /* stack title + close visually */
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* center the title */
+.package-modal__title {
+    margin: 0;
+    font-size: 1.25rem;
+    color: var(--clr-primary);
+    text-align: center;
+    width: 100%;
+    font-weight: 700;
+}
+
+/* place the close button in the top-right corner and make it visible */
+.package-modal__close {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    background: rgba(255, 255, 255, 0.9);
+    /* subtle white bg so icon shows over dark headers */
+    color: var(--clr-text-dark, #1f2937);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 1.05rem;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 6px 14px rgba(12, 18, 28, 0.06);
+}
+
+/* stronger focus ring */
+.package-modal__close:focus {
+    outline: 2px solid rgba(120, 8, 208, 0.18);
+    outline-offset: 2px;
+}
+
+/* body text center */
+.package-modal__body {
+    padding: 1.25rem 1.5rem 1.75rem;
+    text-align: center;
+    /* center description and price */
+}
+
+/* show only price (bold) and center it */
+.package-modal__price {
+    margin: 0.5rem 0 1rem;
+    font-weight: 800;
+    font-size: 1.125rem;
+    color: var(--clr-primary);
+}
+
+/* center actions */
+.package-modal__actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    justify-content: center;
+    /* center the buttons row */
+    flex-wrap: wrap;
+}
+
+/* make modal buttons clearly visible on center row and tappable */
+.package-modal__actions .button,
+.package-modal__actions .btn-outline {
+    min-width: 160px;
+}
+
+/* keep table wrapper unchanged but it will be centered inside body */
+.package-modal__table-wrap {
+    margin: 0.6rem auto 0;
+}
+
+/* small-screen tweak: keep buttons full width on narrow viewports */
+@media (max-width: 420px) {
+
+    .package-modal__actions .button,
+    .package-modal__actions .btn-outline {
+        min-width: 0;
+        width: 100%;
+    }
+}
