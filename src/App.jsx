@@ -5,6 +5,7 @@ import "./App.css";
 import Highlights from "./components/Highlights";
 import Footer from "./components/Footer";
 import Testimonials from "./components/Testimonials";
+import FloatingWhatsAppButton from "./components/FloatingWhatsAppButton";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Highlights />
         <Testimonials />
         <Footer />
+        <FloatingWhatsAppButton />
         {/* <Footer_m /> */}
       </main>
     </>
