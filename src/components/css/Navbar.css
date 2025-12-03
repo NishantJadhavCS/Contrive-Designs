@@ -346,3 +346,65 @@
     transform: translateY(-4px) scale(1.05);
     color: var(--clr-primary);
 }
+
+@media (max-width: 860px) {
+    .desktop-only {
+        display: none !important;
+    }
+
+    .menu-toggle-mobile {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .header-inner {
+        grid-template-columns: auto 1fr auto;
+        height: 84px;
+        padding: 0 16px;
+        display: flex;
+        align-items: center;
+        /* ← center vertically */
+    }
+
+    /* FIX: Proper vertical centering of logo on mobile */
+    .brand {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    /* Make logo fit better in shorter mobile header */
+    .brand-logo {
+        height: 48px;
+    }
+
+    /* ensure header is the positioning context */
+    .header-inner {
+        position: relative;
+        /* keep existing rules you already have (height, padding, etc.) */
+    }
+
+    /* position the hamburger absolutely and center it vertically */
+    .menu-toggle-mobile {
+        position: absolute;
+        left: 12px;
+        /* adjust horizontal gap from left edge */
+        top: 50%;
+        transform: translateY(-50%);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 11000;
+        /* above header content */
+        padding: 8px;
+    }
+
+    /* make sure hamburger icon size fits the reduced header */
+    .menu-toggle-mobile svg,
+    .menu-toggle-mobile .icon {
+        width: 22px;
+        height: 22px;
+    }
+
+}

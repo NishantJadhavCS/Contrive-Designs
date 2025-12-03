@@ -2,7 +2,7 @@
 import React, { useEffect, useRef } from "react";
 import "./css/PackageModal.css";
 
-const PHONE = "+919820555659"; // keep same number as other code
+const PHONE = "+919820555659";
 const whatsappBase = (msg) =>
     `https://wa.me/${PHONE.replace(/\D/g, "")}?text=${encodeURIComponent(msg)}`;
 
