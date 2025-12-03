@@ -363,10 +363,8 @@
         padding: 0 16px;
         display: flex;
         align-items: center;
-        /* ← center vertically */
     }
 
-    /* FIX: Proper vertical centering of logo on mobile */
     .brand {
         position: absolute;
         left: 50%;

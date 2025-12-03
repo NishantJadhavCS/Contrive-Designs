@@ -16,45 +16,27 @@ export default function Highlights() {
             desc: "On-time delivery or your money back.",
         },
         {
-            id: "budget",
-            icon: WalletGif,
-            title: "Budget-Friendly Packages",
-            desc: "Plans for every budget without compromise.",
+            id: "budget-overview",
+            icon: PackageGif,
+            title: "Packages & Budgets",
+            desc: "Clear package scopes with budget-friendly options — pick what fits and know exactly what’s included.",
         },
         {
             id: "curated",
             icon: PalleteGif,
             title: "Professional Designs",
-            desc: "Designs made by experienced interior stylists.",
-        },
-        {
-            id: "overview",
-            icon: PackageGif,
-            title: "Packages Overview",
-            desc: "Clear scope, deliverables and pricing.",
+            desc: "Designs created by experienced interior stylists for practical, beautiful homes.",
         },
     ];
 
-    // repeat more times on desktop for a smooth, fast loop
-    const loopItems = Array(8).fill(items).flat(); // 4 * 8 = 32 cards
-
-    // detect mobile viewport and update on resize
+    // keep simple responsive behavior (if you need different layout on mobile)
     const [isMobile, setIsMobile] = useState(false);
-
     useEffect(() => {
-        // match the CSS breakpoint: mobile <= 599px
         const checkMobile = () => setIsMobile(window.innerWidth <= 599);
-
-        // initial check
         checkMobile();
-
-        // listener to keep things in sync when resizing
         window.addEventListener("resize", checkMobile);
         return () => window.removeEventListener("resize", checkMobile);
     }, []);
-
-    // choose which set to render
-    const displayedItems = isMobile ? items.slice(0, 4) : loopItems;
 
     return (
         <section className="highlights" aria-label="Highlights Section">
@@ -65,10 +47,10 @@ export default function Highlights() {
             </div>
 
             <div className="highlights-inner">
-                <div className="scroll-track" role="list">
-                    {displayedItems.map((it, idx) => (
-                        <article className="highlight-card" role="listitem" key={it.id + "-" + idx}>
-                            {/* GIF ICON */}
+                {/* Render static cards (no scrolling animation) */}
+                <div className={`cards-grid ${isMobile ? "mobile" : "desktop"}`} role="list">
+                    {items.map((it) => (
+                        <article className="highlight-card" role="listitem" key={it.id}>
                             <div className="icon-wrap">
                                 <img src={it.icon} alt="" className="hi-gif" />
                             </div>
