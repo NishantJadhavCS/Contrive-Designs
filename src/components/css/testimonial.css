@@ -270,3 +270,17 @@
         font-size: 22px;
     }
 }
+
+/* Mobile heading spacing */
+@media (max-width: 599px) {
+    .testimonials-header {
+        padding: 0 20px;
+    }
+}
+
+/* Extra small phones */
+@media (max-width: 420px) {
+    .testimonials-header {
+        padding: 0 18px;
+    }
+}

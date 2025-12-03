@@ -51,7 +51,7 @@ body {
     max-width: 1600px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     /* Logo | Quick Links | Contact | Map */
     gap: 28px;
     align-items: start;
