@@ -86,7 +86,7 @@ export default function Navbar() {
                 <ul className="drawer-links">
                     <li><a href="#home" onClick={() => setOpen(false)}>Home</a></li>
                     <li><a href="#packages" onClick={() => setOpen(false)}>Packages</a></li>
-                    <li><a href="#projects" onClick={() => setOpen(false)}>Projects</a></li>
+                    {/* <li><a href="#projects" onClick={() => setOpen(false)}>Projects</a></li> */}
                     <li><a href="#testimonials" onClick={() => setOpen(false)}>Testimonials</a></li>
                 </ul>
 
