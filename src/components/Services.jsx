@@ -4,13 +4,12 @@ import React, { useEffect, useState } from "react";
 import img1 from "../assets/1bhk.jpg";
 import img2 from "../assets/2bhk.jpg";
 import img3 from "../assets/budget.jpg";
-import FloatingEstimator from "./FloatingEstimator";
 import PackageModal from "./PackageModal";
+import ContactForm from "./ContactForm";
 
 export default function Services() {
     const [estimatorOpen, setEstimatorOpen] = useState(false);
 
-    // helper for whatsapp links
     const whatsappBase = (msg) =>
         `https://wa.me/${"+919820555659".replace(/\D/g, "")}?text=${encodeURIComponent(msg)}`;
 
@@ -18,7 +17,6 @@ export default function Services() {
     const [modalPackageId, setModalPackageId] = useState(null);
 
     useEffect(() => {
-        // only activate behavior on small screens where cards are stacked
         const mobileBreakpoint = 980;
 
         let rafId = null;
@@ -195,9 +193,7 @@ export default function Services() {
                         </article>
                     </div>
 
-                    {/* single card centered below the two */}
                     <div className="cards-bottom" role="list">
-                        {/* Build in your budget */}
                         <article
                             className="card card--single"
                             role="button"
@@ -237,7 +233,11 @@ export default function Services() {
             </div>
 
             {/* Render the FloatingEstimator when open */}
-            {estimatorOpen && <FloatingEstimator onClose={() => setEstimatorOpen(false)} />}
+            <ContactForm
+                open={estimatorOpen}
+                onClose={() => setEstimatorOpen(false)}
+            />
+
             <PackageModal
                 open={modalOpen}
                 onClose={() => setModalOpen(false)}

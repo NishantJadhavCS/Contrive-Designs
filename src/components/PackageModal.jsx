@@ -10,35 +10,66 @@ const PACKAGE_LIST = [
     {
         id: 0,
         title: "1 BHK — Standard Package",
-        description: "Smart, space-saving preset themes: Modern · Minimal · Cozy — optimized for compact living.",
-        price: "₹4,00,000",
+        description: "Smart, space-saving preset themes…",
+        price: "₹4,25,000",
+        tableHeaders: ["Entrance", "Specification", "Client to provide"],
         tableRows: [
-            { item: "Wardrobe", measurements: "W: 120cm H: 210cm", size: "2-door", materials: "Engineered wood, laminate" },
-            { item: "TV Unit", measurements: "W: 150cm H: 60cm", size: "Low console", materials: "Plywood, veneer" },
-            { item: "Kitchen Counter", measurements: "L: 240cm H: 90cm", size: "L-shape", materials: "Granite top, modular base" },
-            { item: "Dining Table", measurements: "W: 80cm L: 120cm", size: "2-seater", materials: "Solid wood" },
-            { item: "Bedframe", measurements: "Queen", size: "160x200cm", materials: "Solid wood, veneer" },
-            { item: "Study Desk", measurements: "W: 100cm H: 75cm", size: "Single", materials: "Plywood" },
-            { item: "Storage Shelves", measurements: "Custom", size: "Wall-mounted", materials: "Engineered wood" },
-            { item: "Lighting", measurements: "As per layout", size: "Mixed", materials: "LED fixtures" },
+            { Entrance: "TV Unit", Specification: "Size - 6x4 - Meriono Laminate, Century Ply", "Client to provide": "T-Paati, Rafters" },
+            { Entrance: "Modular Kitchen", Specification: "Size - 6x2 - Meriono PVC Laminate, Century Ply, Hettich channels", "Client to provide": "Handles, Knobs" },
+            { Entrance: "Wardrobe", Specification: "Size - 6x6 - Meriono Laminate, Century Ply", "Client to provide": "Handles, Knobs, T-Paati, Rafters" },
+            { Entrance: "Bed", Specification: "Size - 6x5 - Meriono Laminate, Century Ply", "Client to provide": "Handles, Knobs" },
+            { Entrance: "Dressing Table", Specification: "Size - 5x1.5 - Meriono Laminate, Century Ply", "Client to provide": "Handles, Knobs" },
+            { Entrance: "False Ceiling", Specification: "GPROC Gypsum board & Channels", "Client to provide": "-" },
+            { Entrance: "Painting", Specification: "Asian Paint - Putti + Primer +2 coat paint", "Client to provide": "-" },
         ],
     },
     {
         id: 1,
         title: "2 BHK — Signature Package",
         description: "Turnkey preset designs curated by our team — built for style, function and fast delivery.",
-        price: "₹8,00,000",
+        price: "₹6,25,000",
+
+        tableHeaders: ["Entrance", "Specification", "Client to provide"],
+
         tableRows: [
-            { item: "Master Wardrobe", measurements: "W: 200cm H: 220cm", size: "3-door", materials: "Engineered wood, laminate" },
-            { item: "TV Unit", measurements: "W: 220cm H: 60cm", size: "Feature wall", materials: "Plywood, veneer" },
-            { item: "Kitchen", measurements: "L: 300cm H: 90cm", size: "Modular", materials: "Granite top, MDF" },
-            { item: "Dining", measurements: "W: 90cm L: 160cm", size: "4-seater", materials: "Solid wood" },
-            { item: "Beds", measurements: "2 x Queen", size: "160x200cm", materials: "Solid wood" },
-            { item: "Study", measurements: "W: 140cm", size: "Work nook", materials: "Plywood" },
-            { item: "Utility Storage", measurements: "Custom", size: "Cupboards", materials: "MDF" },
-            { item: "Lighting & Decor", measurements: "Per layout", size: "Multiple", materials: "LED & fittings" },
-        ],
-    },
+            {
+                Entrance: "TV Unit",
+                Specification: "Size - 6x4 - Meriono Laminate, Century Ply",
+                "Client to provide": "T-Paati, Rafters"
+            },
+            {
+                Entrance: "Modular Kitchen",
+                Specification: "Size - 6x2 - Meriono PVC Laminate, Century Ply, Hettich channels",
+                "Client to provide": "Handles, Knobs"
+            },
+            {
+                Entrance: "Wardrobe x2",
+                Specification: "Size - 6x6 - Meriono Laminate, Century Ply",
+                "Client to provide": "Handles, Knobs, T-Paati, Rafters"
+            },
+            {
+                Entrance: "Bed x2",
+                Specification: "Size - 6x5 - Meriono Laminate, Century Ply",
+                "Client to provide": "Handles, Knobs"
+            },
+            {
+                Entrance: "Dressing Table x2",
+                Specification: "Size - 5x1.5 - Meriono Laminate, Century Ply",
+                "Client to provide": "Handles, Knobs"
+            },
+            {
+                Entrance: "False Ceiling",
+                Specification: "GPROC Gypsum board & Channels",
+                "Client to provide": "-"
+            },
+            {
+                Entrance: "Painting",
+                Specification: "Asian Paint - Putti + Primer +2 coat paint",
+                "Client to provide": "-"
+            }
+        ]
+    }
+
 ];
 
 export default function PackageModal({ open, onClose, packageId }) {
@@ -114,22 +145,22 @@ export default function PackageModal({ open, onClose, packageId }) {
                         <table className="package-modal__table" role="table">
                             <thead>
                                 <tr>
-                                    <th>Item</th>
-                                    <th>Measurements</th>
-                                    <th>Size</th>
-                                    <th>Materials Used</th>
+                                    {data.tableHeaders.map((h) => (
+                                        <th key={h}>{h}</th>
+                                    ))}
                                 </tr>
                             </thead>
+
                             <tbody>
                                 {rows.map((r, i) => (
                                     <tr key={i}>
-                                        <td>{r.item}</td>
-                                        <td>{r.measurements}</td>
-                                        <td>{r.size}</td>
-                                        <td>{r.materials}</td>
+                                        {data.tableHeaders.map((h) => (
+                                            <td key={h}>{r[h]}</td>
+                                        ))}
                                     </tr>
                                 ))}
                             </tbody>
+
                         </table>
                     </div>
 

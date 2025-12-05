@@ -1,0 +1,126 @@
+.contact-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(12, 16, 24, 0.55);
+    display: grid;
+    place-items: center;
+    z-index: 10001;
+    padding: 2rem;
+}
+
+/* Modal Container */
+.contact-modal {
+    position: relative;
+    width: 100%;
+    max-width: 540px;
+    background: var(--clr-surface, #fff);
+    border-radius: 14px;
+    box-shadow: 0 30px 60px rgba(12, 18, 28, 0.3);
+    overflow: hidden;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+}
+
+/* Header */
+.contact-modal-head {
+    position: relative;
+    text-align: center;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    font-weight: 700;
+}
+
+/* Close Button */
+.contact-modal-head>button {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 8px 10px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Body */
+.contact-form {
+    padding: 1.25rem 1.5rem 1.75rem;
+    text-align: center;
+}
+
+/* Inputs */
+.contact-form label {
+    text-align: left;
+    display: block;
+    margin-bottom: 1rem;
+    font-size: .92rem;
+    color: var(--clr-text-dark, #1F2937);
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    margin-top: .45rem;
+    background: #fafafa;
+    padding: .65rem .75rem;
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-radius: 8px;
+    font-size: .95rem;
+    color: #1F2937;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    background: #fafafa;
+    color: #1F2937;
+    border-color: #6C4CFF;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(108, 76, 255, 0.20);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #9b9b9b;
+    opacity: 0.9;
+}
+
+.send-btn {
+    background: var(--clr-primary, #6C4CFF);
+    color: #fff;
+    border: none;
+    padding: .7rem 1.4rem;
+    width: 100%;
+    margin-top: .6rem;
+    border-radius: 999px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    transition: transform .18s ease, filter .16s ease;
+}
+
+.send-btn:hover {
+    transform: translateY(-3px);
+    filter: brightness(.95);
+}
+
+/* ================= Mobile Responsive ================= */
+
+@media(max-width: 600px) {
+    .contact-modal-overlay {
+        padding: 1rem;
+    }
+
+    .contact-modal {
+        max-width: 100%;
+        border-radius: 12px;
+    }
+
+    .send-btn {
+        width: 100%;
+    }
+}
+
+@media(max-width: 420px) {
+    .contact-modal {
+        max-height: calc(100vh - 70px);
+    }
+}

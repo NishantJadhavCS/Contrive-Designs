@@ -11,16 +11,13 @@ function App() {
   return (
     <>
       <Navbar />
-      {/* <Navbar_m /> */}
       <main>
-        {/* <Hero_m /> */}
         <Hero />
         <Services />
         <Highlights />
         <Testimonials />
         <Footer />
         <FloatingWhatsAppButton />
-        {/* <Footer_m /> */}
       </main>
     </>
   );

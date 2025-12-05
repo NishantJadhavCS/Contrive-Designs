@@ -228,24 +228,22 @@
         align-items: center;
     }
 
-    /* center logo absolutely */
     .brand {
         position: absolute;
         left: 50%;
-        top: 50%;
+        top: 70%;
         transform: translate(-50%, -50%);
     }
 
-    /* smaller logo */
     .brand-logo {
-        height: 48px;
+        height: 56px;
     }
 
     /* absolute hamburger (left) */
     .menu-toggle-mobile {
         position: absolute;
         left: 12px;
-        top: 50%;
+        top: 70%;
         transform: translateY(-50%);
         z-index: 11000;
         padding: 8px;
@@ -421,4 +419,135 @@ body {
     body {
         padding-top: calc(var(--header-height) + var(--banner-height-mobile, 60px));
     }
+}
+
+
+.menu-toggle-mobile {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    color: var(--clr-text-light);
+}
+
+/* MOBILE — Hide desktop */
+@media (max-width: 860px) {
+    .desktop-only {
+        display: none !important;
+    }
+
+    .menu-toggle-mobile {
+        display: inline-flex;
+        align-items: center;
+    }
+}
+
+.nav-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 9998;
+}
+
+.nav-overlay.show {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Drawer */
+.mobile-drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: 100vh;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.08);
+    transform: translateX(-100%);
+    transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.25, 1);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.mobile-drawer.open {
+    transform: translateX(0);
+}
+
+/* Close button */
+.drawer-close-btn {
+    background: transparent;
+    border: none;
+    font-size: 26px;
+    cursor: pointer;
+    color: #444;
+    align-self: flex-end;
+}
+
+/* Drawer links */
+.drawer-links {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.drawer-links a {
+    text-decoration: none;
+    color: #111;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+/* Drawer Contact Button */
+.drawer-contact-btn {
+    margin-top: 6rem;
+    display: block;
+    background: var(--clr-accent);
+    color: white;
+    padding: 14px;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* ========================= */
+/* FLOAT ANIMATION — LOGO    */
+/* ========================= */
+
+.brand {
+    transition: transform 0.3s var(--motion-spring), filter 0.3s ease;
+}
+
+.brand:hover,
+.brand:focus {
+    transform: translateY(-4px) scale(1.03);
+    filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.12));
+}
+
+
+/* ========================= */
+/* FLOAT ANIMATION — NAV LINKS */
+/* ========================= */
+
+.nav-links a {
+    transition:
+        color 0.25s ease,
+        transform 0.25s var(--motion-spring);
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+    transform: translateY(-4px) scale(1.05);
+    color: var(--clr-primary);
 }

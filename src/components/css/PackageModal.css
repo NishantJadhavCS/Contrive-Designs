@@ -19,7 +19,6 @@
     box-shadow: 0 30px 60px rgba(12, 18, 28, 0.3);
     overflow: hidden;
     transform-origin: center;
-    /* subtle entrance (can be enhanced with JS/animation) */
 }
 
 .package-modal__head {
@@ -42,13 +41,8 @@
     font-size: 1.25rem;
     cursor: pointer;
     line-height: 1;
-    padding: 6px;
+    padding: 3px;
     border-radius: 8px;
-}
-
-.package-modal__close:focus {
-    outline: 2px solid rgba(120, 8, 208, 0.18);
-    outline-offset: 2px;
 }
 
 .package-modal__body {
@@ -127,6 +121,7 @@
     color: var(--clr-primary, #6c4cff);
     border: 2px solid var(--clr-border, #e5e7eb);
     padding: 0.55rem 1.1rem;
+    border-radius: 20px;
 }
 
 /* responsive */
@@ -163,15 +158,9 @@
     /* reduced from 2rem for small devices */
 }
 
-/* make close button easier to tap */
-.package-modal__close {
-    padding: 10px;
-    font-size: 1.25rem;
-}
-
 /* table wrapper: allow both horizontal and vertical scroll on small screens */
 .package-modal__table-wrap {
-    max-height: 45vh;
+    max-height: 50vh;
     /* keep table from pushing modal off-screen */
     overflow: auto;
 }
@@ -274,28 +263,20 @@
     font-weight: 700;
 }
 
-/* place the close button in the top-right corner and make it visible */
 .package-modal__close {
     position: absolute;
     right: 12px;
     top: 12px;
     background: rgba(255, 255, 255, 0.9);
-    /* subtle white bg so icon shows over dark headers */
+    border-radius: 20px;
     color: var(--clr-text-dark, #1f2937);
-    border: 1px solid rgba(0, 0, 0, 0.06);
     border-radius: 8px;
     padding: 8px;
     font-size: 1.05rem;
     line-height: 1;
     cursor: pointer;
-    box-shadow: 0 6px 14px rgba(12, 18, 28, 0.06);
 }
 
-/* stronger focus ring */
-.package-modal__close:focus {
-    outline: 2px solid rgba(120, 8, 208, 0.18);
-    outline-offset: 2px;
-}
 
 /* body text center */
 .package-modal__body {
