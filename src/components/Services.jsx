@@ -126,7 +126,7 @@ export default function Services() {
                         >
                             <div className="card-media" role="img" aria-label="1 BHK sample image" style={{ backgroundImage: `url(${img1})` }} />
                             <div className="card-body">
-                                <h3 className="card-title">1 BHK — Standard Package</h3>
+                                <h3 className="card-title">1 BHK Standard Package</h3>
                                 <p className="card-desc">Smart, space-saving preset themes: Modern · Minimal · Cozy — optimized for compact living.</p>
                                 <div className="card-actions">
                                     <button
@@ -147,7 +147,7 @@ export default function Services() {
                                                 <path d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z" />
                                             </svg>
                                         </span>
-                                        <span className="button__text">Get 1BHK Details</span>
+                                        <span className="button__text">1BHK Details and Cost</span>
                                     </button>
                                 </div>
                             </div>
@@ -164,7 +164,7 @@ export default function Services() {
                         >
                             <div className="card-media" role="img" aria-label="2 BHK sample image" style={{ backgroundImage: `url(${img2})` }} />
                             <div className="card-body">
-                                <h3 className="card-title">2 BHK — Signature Package</h3>
+                                <h3 className="card-title">2 BHK Standard Package</h3>
                                 <p className="card-desc">Turnkey preset designs curated by our team — built for style, function and fast delivery.</p>
 
                                 <div className="card-actions">
@@ -186,7 +186,7 @@ export default function Services() {
                                                 <path d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z" />
                                             </svg>
                                         </span>
-                                        <span className="button__text">Request 2BHK Details</span>
+                                        <span className="button__text">2BHK Details and Cost</span>
                                     </button>
                                 </div>
                             </div>
@@ -222,7 +222,7 @@ export default function Services() {
                                                 <path d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z" />
                                             </svg>
                                         </span>
-                                        <span className="button__text">Calculate My Estimate</span>
+                                        <span className="button__text">Get In Touch</span>
                                     </button>
                                 </div>
                             </div>

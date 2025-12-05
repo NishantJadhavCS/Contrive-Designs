@@ -58,38 +58,37 @@ body {
     justify-items: stretch;
 }
 
-/* Generic column */
-.footer-col {}
+.footer-col {
+    align-items: center;
+}
 
-/* ---------------- LEFT: Brand + socials ---------------- */
 .footer-left {
-    text-align: left;
+    text-align: center;
+    align-items: center;
     display: flex;
     flex-direction: column;
     gap: 18px;
     justify-content: flex-start;
-    align-items: flex-start;
 }
 
-/* Support both class names in case components use .brand or .brand-footer */
 .brand-footer {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     gap: 8px;
     position: relative;
-    /* keep children in normal flow */
     z-index: 0;
     margin: 0;
     padding: 0;
 }
+
+
 
 /* Logo - ensure block behavior and spacing below to avoid overlap */
 .brand-logo-footer {
     display: block !important;
     position: relative !important;
     float: none !important;
-    width: 260px;
+    width: 100%;
     max-width: 100%;
     height: auto;
     margin: 0 0 6px 0;
@@ -97,13 +96,19 @@ body {
     z-index: 1;
 }
 
+.brand-logo-footer {
+    height: 264px;
+    width: auto;
+}
+
 /* tagline below logo */
 .brand-tagline {
+    font-family: "Cardo", serif;
     margin: 0;
-    color: var(--clr-text-light);
-    font-size: 14px;
+    color: var(--clr-text-dark);
+    font-weight: 700;
+    font-size: 18px;
     line-height: 1.45;
-    max-width: 280px;
     display: block !important;
     z-index: 1;
 }
@@ -132,7 +137,7 @@ body {
     border: 1px solid var(--clr-border);
     box-shadow: var(--shadow-soft);
     color: var(--clr-accent-dark);
-    font-size: 22px;
+    font-size: 26px;
     text-decoration: none;
     transition:
         transform 220ms var(--motion-spring),

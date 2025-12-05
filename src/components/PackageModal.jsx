@@ -9,9 +9,9 @@ const whatsappBase = (msg) =>
 const PACKAGE_LIST = [
     {
         id: 0,
-        title: "1 BHK — Standard Package",
+        title: "1 BHK Standard Package",
         description: "Smart, space-saving preset themes…",
-        price: "₹4,25,000",
+        price: "₹4,24,999/-",
         tableHeaders: ["Entrance", "Specification", "Client to provide"],
         tableRows: [
             { Entrance: "TV Unit", Specification: "Size - 6x4 - Meriono Laminate, Century Ply", "Client to provide": "T-Paati, Rafters" },
@@ -19,15 +19,15 @@ const PACKAGE_LIST = [
             { Entrance: "Wardrobe", Specification: "Size - 6x6 - Meriono Laminate, Century Ply", "Client to provide": "Handles, Knobs, T-Paati, Rafters" },
             { Entrance: "Bed", Specification: "Size - 6x5 - Meriono Laminate, Century Ply", "Client to provide": "Handles, Knobs" },
             { Entrance: "Dressing Table", Specification: "Size - 5x1.5 - Meriono Laminate, Century Ply", "Client to provide": "Handles, Knobs" },
-            { Entrance: "False Ceiling", Specification: "GPROC Gypsum board & Channels", "Client to provide": "-" },
+            { Entrance: "False Ceiling", Specification: "GPROC Gypsum board & Channels (Upto 500 Sq.Ft)", "Client to provide": "-" },
             { Entrance: "Painting", Specification: "Asian Paint - Putti + Primer +2 coat paint", "Client to provide": "-" },
         ],
     },
     {
         id: 1,
-        title: "2 BHK — Signature Package",
+        title: "2 BHK Standard Package",
         description: "Turnkey preset designs curated by our team — built for style, function and fast delivery.",
-        price: "₹6,25,000",
+        price: "₹6,24,999/-",
 
         tableHeaders: ["Entrance", "Specification", "Client to provide"],
 
@@ -59,7 +59,7 @@ const PACKAGE_LIST = [
             },
             {
                 Entrance: "False Ceiling",
-                Specification: "GPROC Gypsum board & Channels",
+                Specification: "GPROC Gypsum board & Channels (Upto 700 Sq.Ft)",
                 "Client to provide": "-"
             },
             {
@@ -113,6 +113,11 @@ export default function PackageModal({ open, onClose, packageId }) {
 
     const data = PACKAGE_LIST.find((p) => p.id === packageId) || PACKAGE_LIST[0];
     const rows = data.tableRows || [];
+    function highlightText(text = "") {
+        return text
+            .replace(/\((.*?)\)/g, "(<strong>$1</strong>)")
+            .replace(/\bx2\b/g, "<strong>x2</strong>")
+    }
 
     return (
         <div
@@ -150,19 +155,30 @@ export default function PackageModal({ open, onClose, packageId }) {
                                     ))}
                                 </tr>
                             </thead>
-
                             <tbody>
                                 {rows.map((r, i) => (
                                     <tr key={i}>
                                         {data.tableHeaders.map((h) => (
-                                            <td key={h}>{r[h]}</td>
+                                            <td
+                                                key={h}
+                                                dangerouslySetInnerHTML={{ __html: highlightText(r[h]) }}
+                                            />
                                         ))}
                                     </tr>
                                 ))}
                             </tbody>
 
+
                         </table>
                     </div>
+
+                    <p className="package-note">
+                        Laminate colour selection will be provided by the customer.
+                        <br />
+                        <span className="highlight-note">
+                            Note: Any work beyond the listed scope will be charged separately and will void the 40-day delivery guarantee.
+                        </span>
+                    </p>
 
                     <div className="package-modal__actions">
                         <a
@@ -179,7 +195,7 @@ export default function PackageModal({ open, onClose, packageId }) {
                                     <path d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z" />
                                 </svg>
                             </span>
-                            <span className="button__text">Get details</span>
+                            <span className="button__text">Get In Touch</span>
                         </a>
 
                         <button className="btn-outline" onClick={onClose}>Close</button>

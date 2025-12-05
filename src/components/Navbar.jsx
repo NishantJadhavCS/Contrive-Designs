@@ -2,11 +2,6 @@ import { useState, useEffect, useRef } from "react";
 import "./css/Navbar.css";
 import logo from "../assets/logo.png";
 
-const bannerItems = [
-    "Free site visit · Book now",
-    "40-day delivery guarantee",
-    "New: 2 BHK signature package live",
-];
 
 export default function Navbar() {
     const [open, setOpen] = useState(false);
@@ -71,7 +66,7 @@ export default function Navbar() {
                         <ul className="nav-links">
                             <li><a href="#home">Home</a></li>
                             <li><a href="#packages">Packages</a></li>
-                            <li><a href="#projects">Projects</a></li>
+                            {/* <li><a href="#projects">Projects</a></li> */}
                             <li><a href="#testimonials">Testimonials</a></li>
                         </ul>
                     </nav>
@@ -83,10 +78,8 @@ export default function Navbar() {
                 </div>
             </header>
 
-            {/* Overlay for drawer */}
             <div className={`nav-overlay ${open ? "show" : ""}`} onClick={() => setOpen(false)} />
 
-            {/* Mobile drawer */}
             <aside className={`mobile-drawer ${open ? "open" : ""}`}>
                 <button className="drawer-close-btn" onClick={() => setOpen(false)}>✕</button>
 
@@ -100,11 +93,10 @@ export default function Navbar() {
                 <a href={whatsappLink} target="_blank" className="drawer-contact-btn" rel="noopener noreferrer">Contact Us</a>
             </aside>
 
-            {/* Tagline banner — when header is hidden, banner rises to top */}
             <div className={`tagline-banner ${showHeader ? "" : "tagline-banner--top"}`}>
                 <div className="tagline-banner__inner">
                     <span className="tagline-banner__text">
-                        Your static tagline goes here — interior design made easy.
+                        Clever designs made affordable.
                     </span>
                 </div>
             </div>

@@ -312,6 +312,7 @@
 }
 
 .tagline-banner__inner {
+    font-family: "Cardo", serif;
     max-width: var(--navbar-inner-max-w, 1600px);
     width: 100%;
     padding: 0 16px;

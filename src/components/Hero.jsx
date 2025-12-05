@@ -7,7 +7,7 @@ export default function Hero() {
     const slides = [
         {
             image: hero1,
-            title: "Standard 1 BHK & 2 BHK Packages — Ready in Just 40 Days.",
+            title: "Standard 1 BHK & 2 BHK Packages, Ready in Just 40 Days.",
             buttonText: "View Packages",
             buttonLink: "#packages",
         },

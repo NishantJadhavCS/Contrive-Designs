@@ -9,19 +9,18 @@ export default function Footer() {
         <footer className="footer-container" role="contentinfo">
             <div className="footer-inner">
 
-                {/* Left column: Logo + Tagline + Social */}
                 <div className="footer-col footer-left">
                     <div className="brand-footer">
                         <img src={logo} alt="Contrive Designs" className="brand-logo-footer" />
-                        <p className="brand-tagline">Thoughtful interiors crafted for modern living.</p>
+                        <p className="brand-tagline">Clever designs made affordable.</p>
                     </div>
 
                     <div className="socials" aria-label="Follow us on social media">
-                        <a href="#" className="social" aria-label="Instagram">
+                        <a href="https://www.instagram.com/contrivedesigns_in/" className="social" aria-label="Instagram" target="_blank">
                             <i className="fab fa-instagram" aria-hidden="true"></i>
                         </a>
 
-                        <a href="#" className="social" aria-label="Facebook">
+                        <a href="https://www.facebook.com/share/1H2tJvq5vB/" className="social" aria-label="Facebook" target="_blank">
                             <i className="fab fa-facebook-f" aria-hidden="true"></i>
                         </a>
 
@@ -38,7 +37,6 @@ export default function Footer() {
                     <ul className="footer-nav" role="list">
                         <li><a href="#home">Home</a></li>
                         <li><a href="#packages">Packages</a></li>
-                        <li><a href="#projects">Projects</a></li>
                         <li><a href="#testimonials">Testimonials</a></li>
                     </ul>
                 </div>
@@ -73,7 +71,7 @@ export default function Footer() {
             {/* Bottom copyright row */}
             <div className="footer-bottom" role="note">
                 <div className="footer-bottom-inner">
-                    <span>© {year} Contrive Designs — All Rights Reserved</span>
+                    <span>© {year} Contrive Designs - All Rights Reserved</span>
                 </div>
             </div>
         </footer>

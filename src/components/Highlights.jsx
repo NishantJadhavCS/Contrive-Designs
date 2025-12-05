@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./css/Highlights.css";
 
-// Import GIF assets (adjust path if needed)
 import ClockGif from "../assets/clock.gif";
-import WalletGif from "../assets/wallet.gif";
 import PalleteGif from "../assets/pallete.gif";
 import PackageGif from "../assets/package.gif";
 
@@ -13,23 +11,22 @@ export default function Highlights() {
             id: "delivery",
             icon: ClockGif,
             title: "40-Day Delivery Guarantee",
-            desc: "On-time delivery or your money back.",
+            desc: "On-time delivery or your money back. Your project moves fast, without compromise."
         },
         {
             id: "budget-overview",
             icon: PackageGif,
             title: "Packages & Budgets",
-            desc: "Clear package scopes with budget-friendly options — pick what fits and know exactly what’s included.",
+            desc: "Clear package scopes with budget-friendly options pick what fits and know exactly what’s included.",
         },
         {
             id: "curated",
             icon: PalleteGif,
-            title: "Professional Designs",
-            desc: "Designs created by experienced interior stylists for practical, beautiful homes.",
+            title: "Premium Fittings",
+            desc: "Premium fittings and materials for a refined, long-lasting finish."
         },
     ];
 
-    // keep simple responsive behavior (if you need different layout on mobile)
     const [isMobile, setIsMobile] = useState(false);
     useEffect(() => {
         const checkMobile = () => setIsMobile(window.innerWidth <= 599);

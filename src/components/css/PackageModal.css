@@ -323,3 +323,23 @@
         width: 100%;
     }
 }
+
+.package-note {
+    margin-top: 16px;
+    font-size: 14px;
+    text-align: center;
+    color: #64748b;
+    font-style: italic;
+    line-height: 1.5;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.package-note .highlight-note {
+    display: inline-block;
+    font-weight: 600;
+    color: #1e293b;
+    font-style: normal;
+    margin-top: 4px;
+}
