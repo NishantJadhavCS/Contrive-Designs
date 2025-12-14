@@ -8,11 +8,10 @@
 }
 
 .highlights-inner {
-    max-width: 1200px;
+    max-width: 1600px;
     margin: 0 auto;
     position: relative;
     padding: 0 12px;
-    /* default side gutter on all viewports */
 }
 
 /* Heading */
@@ -30,15 +29,16 @@
 
 .hi-subtitle {
     margin: 8px 0 0;
-    font-size: 14px;
-    color: var(--clr-text-light);
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--clr-text-dark);
 }
 
 /* Grid wrapper (works for .cards-grid or .scroll-track markup) */
 .cards-grid,
 .scroll-track {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 24px 40px;
     /* row-gap / column-gap */
     align-items: stretch;
@@ -110,7 +110,7 @@
 .card-desc {
     margin: 6px 0 0 0;
     font-size: 15px;
-    color: var(--clr-text-light);
+    color: var(--clr-text-dark);
     line-height: 1.25;
 }
 

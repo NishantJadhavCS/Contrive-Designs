@@ -14,27 +14,27 @@ export default function Testimonials() {
 
             <div className="testimonials-section">
                 <TestimonialCard
-                    quote="The team completely transformed my living room. Their attention to detail and understanding of my style was outstanding."
-                    name="RAHUL MEHTA"
+                    quote="Meeting the consultant alone gave me clear insights into the interior design process and helped me make confident decisions."
+                    name="RUTUJA DESHMUKH"
                     city="Mumbai"
                     rating={5}
                 />
 
                 <TestimonialCard
-                    quote="Beautiful designs and great execution. They made my 2BHK feel more spacious and modern without overspending."
-                    name="PRIYA SHARMA"
-                    city="Bangalore"
+                    quote="The team delivered thoughtful designs with smooth execution, making my 2BHK feel modern, spacious, and well within budget."
+                    name="SANDEEP KULKARNI"
+                    city="Navi Mumbai"
                     rating={4}
                 />
 
                 <TestimonialCard
-                    quote="Their sense of aesthetics and space planning is unmatched. My office looks premium and has improved productivity."
+                    quote="Their approach to design and space planning transformed my office into a premium workspace that feels productive and refined."
                     name="SUHASH SHIRDE"
                     city="Mumbai"
                     rating={5}
                 />
-
             </div>
+
         </div>
     );
 }

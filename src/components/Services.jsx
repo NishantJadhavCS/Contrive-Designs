@@ -107,8 +107,7 @@ export default function Services() {
                 <header className="services-head">
                     <h2 id="services-title">Interior Design Packages</h2>
                     <p className="services-sub">
-                        Preset, budget-friendly interior solutions for 1 & 2 BHK homes. Choose a ready design for fast delivery or build a custom plan to fit
-                        your budget.
+                        Preset, budget-friendly interior solutions for 1 & 2 BHK homes or build a Custom plan to design your Dream home.
                     </p>
                 </header>
 
@@ -127,7 +126,7 @@ export default function Services() {
                             <div className="card-media" role="img" aria-label="1 BHK sample image" style={{ backgroundImage: `url(${img1})` }} />
                             <div className="card-body">
                                 <h3 className="card-title">1 BHK Standard Package</h3>
-                                <p className="card-desc">Smart, space-saving preset themes: Modern · Minimal · Cozy — optimized for compact living.</p>
+                                <p className="card-desc">Smart, space-saving preset themes: Modern · Minimal · Cozy optimized for compact living.</p>
                                 <div className="card-actions">
                                     <button
                                         className="button"
@@ -165,7 +164,7 @@ export default function Services() {
                             <div className="card-media" role="img" aria-label="2 BHK sample image" style={{ backgroundImage: `url(${img2})` }} />
                             <div className="card-body">
                                 <h3 className="card-title">2 BHK Standard Package</h3>
-                                <p className="card-desc">Turnkey preset designs curated by our team — built for style, function and fast delivery.</p>
+                                <p className="card-desc">Smart, space-saving preset themes: Same Design Philosophy just for bigger homes.</p>
 
                                 <div className="card-actions">
                                     <button

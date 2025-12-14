@@ -6,6 +6,8 @@ import Highlights from "./components/Highlights";
 import Footer from "./components/Footer";
 import Testimonials from "./components/Testimonials";
 import FloatingWhatsAppButton from "./components/FloatingWhatsAppButton";
+import ScrollingBrands from "./components/ScrollingBrands";
+import Flow from "./components/Flow";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
         <Services />
         <Highlights />
         <Testimonials />
+        <ScrollingBrands />
+        <Flow />
         <Footer />
         <FloatingWhatsAppButton />
       </main>

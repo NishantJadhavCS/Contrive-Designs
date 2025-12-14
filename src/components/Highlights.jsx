@@ -4,6 +4,7 @@ import "./css/Highlights.css";
 import ClockGif from "../assets/clock.gif";
 import PalleteGif from "../assets/pallete.gif";
 import PackageGif from "../assets/package.gif";
+import RupeeGif from "../assets/rupee.gif";
 
 export default function Highlights() {
     const items = [
@@ -16,15 +17,22 @@ export default function Highlights() {
         {
             id: "budget-overview",
             icon: PackageGif,
-            title: "Packages & Budgets",
-            desc: "Clear package scopes with budget-friendly options pick what fits and know exactly what’s included.",
+            title: "Honest Packages",
+            desc: "Clear package scopes with no hidden conditions, pick what fits and know exactly what’s included.",
         },
         {
             id: "curated",
             icon: PalleteGif,
-            title: "Premium Fittings",
+            title: "Branded Fittings",
             desc: "Premium fittings and materials for a refined, long-lasting finish."
         },
+        {
+            id: "budget-friendly",
+            icon: RupeeGif,
+            title: "Budget Friendly",
+            desc: "Standard and customize packages with budget-friendly deals",
+
+        }
     ];
 
     const [isMobile, setIsMobile] = useState(false);

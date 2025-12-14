@@ -12,7 +12,7 @@ export default function Footer() {
                 <div className="footer-col footer-left">
                     <div className="brand-footer">
                         <img src={logo} alt="Contrive Designs" className="brand-logo-footer" />
-                        <p className="brand-tagline">Clever designs made affordable.</p>
+                        <p className="brand-tagline">Clever Designs Made Affordable.</p>
                     </div>
 
                     <div className="socials" aria-label="Follow us on social media">

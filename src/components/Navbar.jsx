@@ -66,7 +66,7 @@ export default function Navbar() {
                         <ul className="nav-links">
                             <li><a href="#home">Home</a></li>
                             <li><a href="#packages">Packages</a></li>
-                            {/* <li><a href="#projects">Projects</a></li> */}
+                            <li><a href="#projects">Projects</a></li>
                             <li><a href="#testimonials">Testimonials</a></li>
                         </ul>
                     </nav>
@@ -96,7 +96,7 @@ export default function Navbar() {
             <div className={`tagline-banner ${showHeader ? "" : "tagline-banner--top"}`}>
                 <div className="tagline-banner__inner">
                     <span className="tagline-banner__text">
-                        Clever designs made affordable.
+                        Clever Designs Made Affordable.
                     </span>
                 </div>
             </div>

@@ -9,63 +9,56 @@ const whatsappBase = (msg) =>
 const PACKAGE_LIST = [
     {
         id: 0,
-        title: "1 BHK Standard Package",
+        title: "1 BHK Standard Package (Upto 500 Sq.Ft)",
         description: "Smart, space-saving preset themes…",
         price: "₹4,24,999/-",
-        tableHeaders: ["Entrance", "Specification", "Client to provide"],
+        tableHeaders: ["Inclusion(s)", "Specification"],
         tableRows: [
-            { Entrance: "TV Unit", Specification: "Size - 6x4 - Meriono Laminate, Century Ply", "Client to provide": "T-Paati, Rafters" },
-            { Entrance: "Modular Kitchen", Specification: "Size - 6x2 - Meriono PVC Laminate, Century Ply, Hettich channels", "Client to provide": "Handles, Knobs" },
-            { Entrance: "Wardrobe", Specification: "Size - 6x6 - Meriono Laminate, Century Ply", "Client to provide": "Handles, Knobs, T-Paati, Rafters" },
-            { Entrance: "Bed", Specification: "Size - 6x5 - Meriono Laminate, Century Ply", "Client to provide": "Handles, Knobs" },
-            { Entrance: "Dressing Table", Specification: "Size - 5x1.5 - Meriono Laminate, Century Ply", "Client to provide": "Handles, Knobs" },
-            { Entrance: "False Ceiling", Specification: "GPROC Gypsum board & Channels (Upto 500 Sq.Ft)", "Client to provide": "-" },
-            { Entrance: "Painting", Specification: "Asian Paint - Putti + Primer +2 coat paint", "Client to provide": "-" },
+            { "Inclusion(s)": "TV Unit", Specification: "Size - 8.5' x 6' - Merino Laminate, Century Ply" },
+            { "Inclusion(s)": "Modular Kitchen", Specification: "Size - 6' x 2' - Merino PVC Laminate, Century Ply, Hettich channels" },
+            { "Inclusion(s)": "Wardrobe", Specification: "Size - 6' x 7' - Merino Laminate, Century Ply" },
+            { "Inclusion(s)": "Bed (with Headboard)", Specification: "Size - 6' x 5' & 3' x 5'(Headboard) - Merino Laminate, Century Ply" },
+            { "Inclusion(s)": "Dressing Table", Specification: "Size - 6' x 1.5' - Merino Laminate, Century Ply" },
+            { "Inclusion(s)": "False Ceiling", Specification: "GYPROC Gypsum board & Channels" },
+            { "Inclusion(s)": "Painting", Specification: "Asian Paint (Putti + Primer +2 coat paint)" },
         ],
     },
     {
         id: 1,
-        title: "2 BHK Standard Package",
+        title: "2 BHK Standard Package (Upto 700 Sq.Ft)",
         description: "Turnkey preset designs curated by our team — built for style, function and fast delivery.",
-        price: "₹6,24,999/-",
+        price: "₹5,94,999/-",
 
-        tableHeaders: ["Entrance", "Specification", "Client to provide"],
+        tableHeaders: ["Inclusion(s)", "Specification"],
 
         tableRows: [
             {
-                Entrance: "TV Unit",
-                Specification: "Size - 6x4 - Meriono Laminate, Century Ply",
-                "Client to provide": "T-Paati, Rafters"
+                "Inclusion(s)": "TV Unit",
+                Specification: "Size - 8.5' x 6' - Merino Laminate, Century Ply",
             },
             {
-                Entrance: "Modular Kitchen",
-                Specification: "Size - 6x2 - Meriono PVC Laminate, Century Ply, Hettich channels",
-                "Client to provide": "Handles, Knobs"
+                "Inclusion(s)": "Modular Kitchen",
+                Specification: "Size - 6' x 2' - Merino PVC Laminate, Century Ply, Hettich channels",
             },
             {
-                Entrance: "Wardrobe x2",
-                Specification: "Size - 6x6 - Meriono Laminate, Century Ply",
-                "Client to provide": "Handles, Knobs, T-Paati, Rafters"
+                "Inclusion(s)": "Wardrobe x2",
+                Specification: "Size - 6' x 7' - Merino Laminate, Century Ply",
             },
             {
-                Entrance: "Bed x2",
-                Specification: "Size - 6x5 - Meriono Laminate, Century Ply",
-                "Client to provide": "Handles, Knobs"
+                "Inclusion(s)": "Bed (with Headboard) x2",
+                Specification: "Size - 6' x 5' & 3' x 5'(Headboard) - Merino Laminate, Century Ply",
             },
             {
-                Entrance: "Dressing Table x2",
-                Specification: "Size - 5x1.5 - Meriono Laminate, Century Ply",
-                "Client to provide": "Handles, Knobs"
+                "Inclusion(s)": "Dressing Table x2",
+                Specification: "Size - 6' x 1.5' - Merino Laminate, Century Ply",
             },
             {
-                Entrance: "False Ceiling",
-                Specification: "GPROC Gypsum board & Channels (Upto 700 Sq.Ft)",
-                "Client to provide": "-"
+                "Inclusion(s)": "False Ceiling",
+                Specification: "GYPROC Gypsum board & Channels",
             },
             {
-                Entrance: "Painting",
-                Specification: "Asian Paint - Putti + Primer +2 coat paint",
-                "Client to provide": "-"
+                "Inclusion(s)": "Painting",
+                Specification: "Asian Paint (Putti + Primer +2 coat paint)",
             }
         ]
     }
@@ -115,7 +108,7 @@ export default function PackageModal({ open, onClose, packageId }) {
     const rows = data.tableRows || [];
     function highlightText(text = "") {
         return text
-            .replace(/\((.*?)\)/g, "(<strong>$1</strong>)")
+            // .replace(/\((.*?)\)/g, "(<strong>$1</strong>)")
             .replace(/\bx2\b/g, "<strong>x2</strong>")
     }
 
@@ -143,8 +136,8 @@ export default function PackageModal({ open, onClose, packageId }) {
                 </header>
 
                 <div className="package-modal__body">
-                    <p className="package-modal__desc">{data.description}</p>
-                    <p className="package-modal__price">{data.price}</p>
+                    {/* <p className="package-modal__desc">{data.description}</p> */}
+                    <p className="package-modal__price">JUST AT {data.price} ONLY</p>
 
                     <div className="package-modal__table-wrap">
                         <table className="package-modal__table" role="table">
@@ -173,7 +166,7 @@ export default function PackageModal({ open, onClose, packageId }) {
                     </div>
 
                     <p className="package-note">
-                        Laminate colour selection will be provided by the customer.
+                        (Door Handle, T-Patti ,Rafters and color selection of Paint and Laminate will be provided by the customer.)
                         <br />
                         <span className="highlight-note">
                             Note: Any work beyond the listed scope will be charged separately and will void the 40-day delivery guarantee.
