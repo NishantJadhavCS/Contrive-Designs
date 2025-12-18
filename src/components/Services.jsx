@@ -102,31 +102,59 @@ export default function Services() {
 
 
     return (
-        <section className="services-section" id="packages" aria-labelledby="services-title">
+        <section
+            className="services-section"
+            id="packages"
+            aria-labelledby="services-title"
+        >
             <div className="services-inner">
-                <header className="services-head">
+
+                {/* SECTION HEADER */}
+                <header
+                    className="services-head"
+                    data-aos="fade-up"
+                    data-aos-duration="700"
+                >
                     <h2 id="services-title">Interior Design Packages</h2>
                     <p className="services-sub">
                         Preset, budget-friendly interior solutions for 1 & 2 BHK homes or build a Custom plan to design your Dream home.
                     </p>
                 </header>
 
-                {/* Cards wrapper: top row (2 cards) + single centered card below */}
+                {/* CARDS */}
                 <div className="cards">
-                    <div className="cards-top" role="list">
+
+                    {/* TOP ROW */}
+                    <div
+                        className="cards-top"
+                        role="list"
+                        data-aos="fade-up"
+                        data-aos-delay="100"
+                    >
                         {/* 1 BHK */}
                         <article
                             className="card"
+                            data-aos="fade-right"
+                            data-aos-delay="200"
+                            data-aos-duration="600"
                             role="button"
                             tabIndex={0}
                             aria-label="Open 1 BHK details"
                             onClick={(e) => onCardActivate(e, 0)}
                             onKeyDown={(e) => onCardKeyDown(e, 0)}
                         >
-                            <div className="card-media" role="img" aria-label="1 BHK sample image" style={{ backgroundImage: `url(${img1})` }} />
+                            <div
+                                className="card-media"
+                                role="img"
+                                aria-label="1 BHK sample image"
+                                style={{ backgroundImage: `url(${img1})` }}
+                            />
                             <div className="card-body">
                                 <h3 className="card-title">1 BHK Standard Package</h3>
-                                <p className="card-desc">Smart, space-saving preset themes: Modern · Minimal · Cozy optimized for compact living.</p>
+                                <p className="card-desc">
+                                    Smart, space-saving preset themes: Modern · Minimal · Cozy optimized for compact living.
+                                </p>
+
                                 <div className="card-actions">
                                     <button
                                         className="button"
@@ -138,11 +166,10 @@ export default function Services() {
                                         }}
                                     >
                                         <span className="button__icon-wrapper" aria-hidden="true">
-                                            <svg className="button__icon-svg" viewBox="0 0 14 15" xmlns="http://www.w3.org/2000/svg">
+                                            <svg className="button__icon-svg" viewBox="0 0 14 15">
                                                 <path d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z" />
                                             </svg>
-
-                                            <svg className="button__icon-svg button__icon-svg--copy" viewBox="0 0 14 15" xmlns="http://www.w3.org/2000/svg">
+                                            <svg className="button__icon-svg button__icon-svg--copy" viewBox="0 0 14 15">
                                                 <path d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z" />
                                             </svg>
                                         </span>
@@ -155,16 +182,26 @@ export default function Services() {
                         {/* 2 BHK */}
                         <article
                             className="card"
+                            data-aos="fade-left"
+                            data-aos-delay="300"
+                            data-aos-duration="600"
                             role="button"
                             tabIndex={0}
                             aria-label="Open 2 BHK details"
                             onClick={(e) => onCardActivate(e, 1)}
                             onKeyDown={(e) => onCardKeyDown(e, 1)}
                         >
-                            <div className="card-media" role="img" aria-label="2 BHK sample image" style={{ backgroundImage: `url(${img2})` }} />
+                            <div
+                                className="card-media"
+                                role="img"
+                                aria-label="2 BHK sample image"
+                                style={{ backgroundImage: `url(${img2})` }}
+                            />
                             <div className="card-body">
                                 <h3 className="card-title">2 BHK Standard Package</h3>
-                                <p className="card-desc">Smart, space-saving preset themes: Same Design Philosophy just for bigger homes.</p>
+                                <p className="card-desc">
+                                    Smart, space-saving preset themes: Same Design Philosophy just for bigger homes.
+                                </p>
 
                                 <div className="card-actions">
                                     <button
@@ -177,11 +214,10 @@ export default function Services() {
                                         }}
                                     >
                                         <span className="button__icon-wrapper" aria-hidden="true">
-                                            <svg className="button__icon-svg" viewBox="0 0 14 15" xmlns="http://www.w3.org/2000/svg">
+                                            <svg className="button__icon-svg" viewBox="0 0 14 15">
                                                 <path d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z" />
                                             </svg>
-
-                                            <svg className="button__icon-svg button__icon-svg--copy" viewBox="0 0 14 15" xmlns="http://www.w3.org/2000/svg">
+                                            <svg className="button__icon-svg button__icon-svg--copy" viewBox="0 0 14 15">
                                                 <path d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z" />
                                             </svg>
                                         </span>
@@ -192,7 +228,14 @@ export default function Services() {
                         </article>
                     </div>
 
-                    <div className="cards-bottom" role="list">
+                    {/* BOTTOM CARD */}
+                    <div
+                        className="cards-bottom"
+                        role="list"
+                        data-aos="fade-up"
+                        data-aos-delay="200"
+                        data-aos-duration="650"
+                    >
                         <article
                             className="card card--single"
                             role="button"
@@ -201,10 +244,17 @@ export default function Services() {
                             onClick={(e) => onCardActivate(e, 2)}
                             onKeyDown={(e) => onCardKeyDown(e, 2)}
                         >
-                            <div className="card-media" role="img" aria-label="Build in your budget sample image" style={{ backgroundImage: `url(${img3})` }} />
+                            <div
+                                className="card-media"
+                                role="img"
+                                aria-label="Build in your budget sample image"
+                                style={{ backgroundImage: `url(${img3})` }}
+                            />
                             <div className="card-body">
                                 <h3 className="card-title">Build To Your Budget</h3>
-                                <p className="card-desc">Choose your budget and instantly see what scope of work is possible for your home.</p>
+                                <p className="card-desc">
+                                    Choose your budget and instantly see what scope of work is possible for your home.
+                                </p>
 
                                 <div className="card-actions">
                                     <button
@@ -213,11 +263,10 @@ export default function Services() {
                                         onClick={() => setEstimatorOpen(true)}
                                     >
                                         <span className="button__icon-wrapper" aria-hidden="true">
-                                            <svg className="button__icon-svg" viewBox="0 0 14 15" xmlns="http://www.w3.org/2000/svg">
+                                            <svg className="button__icon-svg" viewBox="0 0 14 15">
                                                 <path d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z" />
                                             </svg>
-
-                                            <svg className="button__icon-svg button__icon-svg--copy" viewBox="0 0 14 15" xmlns="http://www.w3.org/2000/svg">
+                                            <svg className="button__icon-svg button__icon-svg--copy" viewBox="0 0 14 15">
                                                 <path d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z" />
                                             </svg>
                                         </span>
@@ -228,10 +277,9 @@ export default function Services() {
                         </article>
                     </div>
                 </div>
-
             </div>
 
-            {/* Render the FloatingEstimator when open */}
+            {/* Modals (NO AOS) */}
             <ContactForm
                 open={estimatorOpen}
                 onClose={() => setEstimatorOpen(false)}
@@ -243,5 +291,7 @@ export default function Services() {
                 packageId={modalPackageId}
             />
         </section>
+
     );
+
 }

@@ -45,17 +45,38 @@ export default function Highlights() {
 
     return (
         <section className="highlights" aria-label="Highlights Section">
-            {/* Heading */}
-            <div className="highlights-heading">
+
+            {/* HEADING */}
+            <div
+                className="highlights-heading"
+                data-aos="fade-up"
+                data-aos-duration="700"
+            >
                 <h2 className="hi-title">Why Choose Us</h2>
-                <p className="hi-subtitle">Experience a seamless and professional interior design process.</p>
+                <p className="hi-subtitle">
+                    Experience a seamless and professional interior design process.
+                </p>
             </div>
 
             <div className="highlights-inner">
-                {/* Render static cards (no scrolling animation) */}
-                <div className={`cards-grid ${isMobile ? "mobile" : "desktop"}`} role="list">
-                    {items.map((it) => (
-                        <article className="highlight-card" role="listitem" key={it.id}>
+
+                {/* CARDS GRID */}
+                <div
+                    className={`cards-grid ${isMobile ? "mobile" : "desktop"}`}
+                    role="list"
+                    data-aos="fade-up"
+                    data-aos-delay="150"
+                >
+                    {items.map((it, index) => (
+                        <article
+                            className="highlight-card"
+                            role="listitem"
+                            key={it.id}
+                            data-aos="fade-up"
+                            data-aos-delay={isMobile ? 0 : index * 120}
+                            data-aos-duration="500"
+                            data-aos-offset={isMobile ? 60 : 80 + index * 20}
+                        >
                             <div className="icon-wrap">
                                 <img src={it.icon} alt="" className="hi-gif" />
                             </div>
@@ -70,4 +91,5 @@ export default function Highlights() {
             </div>
         </section>
     );
+
 }

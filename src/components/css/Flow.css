@@ -1,180 +1,244 @@
-.flow {
-    background: var(--clr-bg);
-    padding: 2rem 1.5rem;
+/* Flow.css */
+.flow-section {
+    padding: 3rem 1rem;
+    background-color: var(--background-color, #ffffff);
+    /* Optional subtle gradient for modern feel */
+    background: linear-gradient(to bottom, #ffffff, #f9f9f9);
     text-align: center;
+    overflow: hidden;
 }
 
+.flow-header {
+    margin-bottom: 4rem;
+    position: relative;
+    z-index: 2;
+}
 
-.flow__title {
+.flow-title {
     font-size: 2.2rem;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
     font-weight: 700;
-    color: var(--clr-primary);
-    letter-spacing: .2px;
+    color: var(--clr-primary, #eebf00);
+    margin: 0;
+    letter-spacing: 0.5px;
 }
 
+.flow-subtitle {
+    font-size: 1.1rem;
+    color: var(--clr-text-dark, #333);
+    margin-top: 0.5rem;
+    opacity: 0.8;
+}
 
-.flow__steps {
-    background-color: white;
+.flow-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    padding: 1rem;
+}
+
+.flow-stepper {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2.5rem;
-    flex-wrap: nowrap;
-    padding: 1rem 2.5rem;
-    border-radius: 70px;
-    box-shadow: var(--shadow-soft);
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    gap: 1rem;
 }
 
-.flow__step {
-    width: 240px;
-    height: 240px;
-    flex-shrink: 0;
+/* Horizontal connecting line */
+.stepper-line {
+    position: absolute;
+    top: 74px;
+    /* Aligns with the center of the icon circle (100px height / 2) */
+    left: 5%;
+    width: 90%;
+    height: 3px;
+    background: #c2c0c0;
+    z-index: 0;
+    transform: translateY(-50%);
+}
 
-    background: var(--clr-surface);
-    border-radius: 50%;
-    box-shadow: var(--shadow-soft);
-
+.flow-step {
+    position: relative;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 2rem 1.5rem;
-    transition:
-        transform 0.35s ease,
-        box-shadow 0.35s ease;
+    flex: 1;
+    min-width: 180px;
+    /* Ensure columns doesn't squash too much */
 }
 
-.flow__step:hover {
-    transform: translateY(-10px);
-    box-shadow:
-        0 8px 24px rgba(0, 0, 0, 0.08),
-        0 16px 40px rgba(0, 0, 0, 0.12);
+/* Icon Styles */
+.step-marker {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1.5rem;
 }
 
-.flow__gif-arrow {
-    width: 56px;
-    height: 56px;
-    flex-shrink: 0;
+.step-icon-wrapper {
+    width: 150px;
+    height: 150px;
+    background: white;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    filter: grayscale(250%);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    /* Soft shadow for depth */
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+    border: 3px solid white;
+    /* clean border against the line */
 }
 
-.flow__gif-arrow img {
-    width: 100%;
-    height: auto;
-}
-
-
-.flow__icon {
-    width: 72px;
-    height: 72px;
-    margin: 0 auto 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-
-.flow__icon img {
-    max-width: 100%;
-    max-height: 100%;
+.step-icon {
+    width: 50px;
+    height: 50px;
     object-fit: contain;
 }
 
-
-.flow__step-title {
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: var(--clr-text-dark);
-    margin-bottom: 0.5rem;
+/* Dot on the line */
+.step-dot {
+    width: 14px;
+    height: 14px;
+    background: var(--clr-primary, #eebf00);
+    border: 3px solid white;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -7px;
+    /* Sit on the bottom edge if we want, or adjust to be unconnected */
+    /* Let's hide the dot for this specific design if the icon is the marker, 
+       OR place it on the line below the icon? 
+       Actually, effectively the big circle IS the dot. Let's hide the small dot for desktop. 
+    */
+    display: none;
 }
 
 
-.flow__step-desc {
+/* Hover Effects */
+.flow-step:hover .step-icon-wrapper {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+    border-color: var(--clr-primary, #eebf00);
+}
+
+/* Content Styles */
+.step-content {
+    text-align: center;
+    padding: 0 0.5rem;
+}
+
+.step-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--clr-text-dark, #222);
+    margin: 0 0 0.5rem 0;
+}
+
+.step-desc {
     font-size: 0.95rem;
-    color: var(--clr-text-light);
-    line-height: 1.5;
+    color: var(--clr-text-dark, #666);
+    line-height: 1.4;
 }
 
-
+/* Responsive / Mobile Styles */
 @media (max-width: 1024px) {
-    .flow__steps {
-        flex-wrap: wrap;
-        gap: 2.5rem;
-    }
-
-    .flow__gif-arrow {
-        transform: rotate(90deg);
-    }
-}
-
-@media (min-width: 1024px) {
-    .flow__steps {
-        padding: 3.5rem 3rem;
-    }
-}
-
-@media (max-width: 1024px) {
-    .flow__steps {
+    .flow-stepper {
         flex-direction: column;
-        border-radius: 32px;
-        padding: 2rem 1.5rem;
+        align-items: flex-start;
+        gap: 2rem;
+        padding-left: 2rem;
+        /* Make space for vertical line */
     }
 
-    .flow__step {
-        width: 220px;
-        height: 220px;
+    /* Vertical Line */
+    .stepper-line {
+        width: 3px;
+        height: 100%;
+        /* Full height */
+        top: 0;
+        left: 20px;
+        /* Align with left padding */
+        transform: none;
     }
 
-    .flow__gif-arrow {
-        transform: rotate(90deg);
-        margin: 0.5rem 0;
+    .flow-step {
+        flex-direction: row;
+        width: 100%;
+        text-align: left;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+
+    .step-marker {
+        margin-bottom: 0;
+    }
+
+    .step-icon-wrapper {
+        width: 70px;
+        height: 70px;
+        /* Ensure styling matches */
+    }
+
+    .step-icon {
+        width: 35px;
+        height: 35px;
+    }
+
+    /* Show connecting dots contextually if needed, but the line behind the icons works well */
+
+    .step-content {
+        text-align: left;
+        padding-top: 0.5rem;
+    }
+
+    .step-title {
+        font-size: 1.2rem;
     }
 }
 
 @media (max-width: 480px) {
-    .flow__title {
-        font-size: 1.6rem;
+    .flow-header {
+        margin-bottom: 2.5rem;
     }
 
-    .flow__step {
-        width: 200px;
-        height: 200px;
-        padding: 1.5rem 1rem;
+    .flow-title {
+        font-size: 1.8rem;
     }
 
-    .flow__step-title {
-        font-size: 0.95rem;
+    .flow-stepper {
+        padding-left: 1rem;
     }
 
-    .flow__step-desc {
-        font-size: 0.85rem;
-    }
-}
-
-@keyframes float {
-    0% {
-        transform: translateY(0);
+    .stepper-line {
+        left: 36px;
+        /* Align deeply with the icon center */
     }
 
-    50% {
-        transform: translateY(-6px);
+    .step-icon-wrapper {
+        width: 60px;
+        height: 60px;
     }
 
-    100% {
-        transform: translateY(0);
+    .stepper-line {
+        left: 40px;
+        /* Center of 60px + padding? No, wrapper is relative. 
+                     Wait, flex row means marker is first child. 
+                     Marker width = 60px. Center = 30px.
+                     So left should be 1rem (padding-left of parent not included in absolute calc?) + 30px.
+                     
+                     Actually, simpler approach for mobile vertical line:
+                     Put the border on the container or use a pseudo-element on the list container.
+                     But the current absolute .stepper-line is relative to .flow-stepper.
+                     If .flow-stepper has padding-left: 1rem.
+                     Then line 'left' needs to center on the start of the icon.
+                     Let's check the devtools or just guess: 1rem + 30px = approx 46px.
+                  */
+        left: 40px;
     }
-}
 
-.flow__step {
-    animation: float 6s ease-in-out infinite;
-}
-
-.flow__step:hover {
-    animation-play-state: paused;
+    .flow-step {
+        gap: 1rem;
+    }
 }

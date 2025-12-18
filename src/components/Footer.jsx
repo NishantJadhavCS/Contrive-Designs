@@ -7,31 +7,64 @@ export default function Footer() {
 
     return (
         <footer className="footer-container" role="contentinfo">
+
             <div className="footer-inner">
 
-                <div className="footer-col footer-left">
+                {/* LEFT COLUMN */}
+                <div
+                    className="footer-col footer-left"
+                    data-aos="fade-right"
+                    data-aos-duration="600"
+                >
                     <div className="brand-footer">
-                        <img src={logo} alt="Contrive Designs" className="brand-logo-footer" />
-                        <p className="brand-tagline">Clever Designs Made Affordable.</p>
+                        <img
+                            src={logo}
+                            alt="Contrive Designs"
+                            className="brand-logo-footer"
+                        />
+                        <p className="brand-tagline">
+                            Clever Designs Made Affordable.
+                        </p>
                     </div>
 
                     <div className="socials" aria-label="Follow us on social media">
-                        <a href="https://www.instagram.com/contrivedesigns_in/" className="social" aria-label="Instagram" target="_blank">
+                        <a
+                            href="https://www.instagram.com/contrivedesigns_in/"
+                            className="social"
+                            aria-label="Instagram"
+                            target="_blank"
+                        >
                             <i className="fab fa-instagram" aria-hidden="true"></i>
                         </a>
 
-                        <a href="https://www.facebook.com/share/1H2tJvq5vB/" className="social" aria-label="Facebook" target="_blank">
+                        <a
+                            href="https://www.facebook.com/share/1H2tJvq5vB/"
+                            className="social"
+                            aria-label="Facebook"
+                            target="_blank"
+                        >
                             <i className="fab fa-facebook-f" aria-hidden="true"></i>
                         </a>
 
-                        <a href="https://wa.me/919820555659" className="social" aria-label="WhatsApp" target="_blank">
+                        <a
+                            href="https://wa.me/919820555659"
+                            className="social"
+                            aria-label="WhatsApp"
+                            target="_blank"
+                        >
                             <i className="fab fa-whatsapp" aria-hidden="true"></i>
                         </a>
                     </div>
                 </div>
 
-                {/* Center column: Quick Links */}
-                <div className="footer-col footer-center" aria-label="Footer navigation">
+                {/* CENTER COLUMN */}
+                <div
+                    className="footer-col footer-center"
+                    aria-label="Footer navigation"
+                    data-aos="fade-up"
+                    data-aos-delay="120"
+                    data-aos-duration="600"
+                >
                     <h4 className="footer-heading">Quick Links</h4>
 
                     <ul className="footer-nav" role="list">
@@ -41,8 +74,13 @@ export default function Footer() {
                     </ul>
                 </div>
 
-                {/* Contact column */}
-                <div className="footer-col footer-contact">
+                {/* RIGHT COLUMN */}
+                <div
+                    className="footer-col footer-contact"
+                    data-aos="fade-left"
+                    data-aos-delay="240"
+                    data-aos-duration="600"
+                >
                     <h4 className="footer-heading">Contact Us</h4>
 
                     <ul className="footer-contact-list">
@@ -63,17 +101,24 @@ export default function Footer() {
                                 <span className="contact-text">9820555659</span>
                             </a>
                         </li>
-
                     </ul>
                 </div>
             </div>
 
-            {/* Bottom copyright row */}
-            <div className="footer-bottom" role="note">
+            {/* FOOTER BOTTOM */}
+            <div
+                className="footer-bottom"
+                role="note"
+                data-aos="fade-up"
+                data-aos-delay="360"
+                data-aos-duration="500"
+            >
                 <div className="footer-bottom-inner">
                     <span>© {year} Contrive Designs - All Rights Reserved</span>
                 </div>
             </div>
+
         </footer>
+
     );
 }

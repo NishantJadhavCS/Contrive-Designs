@@ -29,10 +29,23 @@ const brands = [
 export default function ScrollingBrands() {
     return (
         <section className="scrolling-brands">
-            <h3 className="scrolling-brands__title">Our Trusted Brands</h3>
 
+            {/* SECTION TITLE */}
+            <h3
+                className="scrolling-brands__title"
+                data-aos="fade-up"
+                data-aos-duration="600"
+            >
+                Our Trusted Brands
+            </h3>
 
-            <div className="scrolling-brands__wrapper">
+            {/* SCROLLING WRAPPER */}
+            <div
+                className="scrolling-brands__wrapper"
+                data-aos="fade-up"
+                data-aos-delay="120"
+                data-aos-duration="600"
+            >
                 <div className="scrolling-brands__track">
                     {Array.from({ length: 6 })
                         .flatMap(() => brands)
@@ -49,9 +62,10 @@ export default function ScrollingBrands() {
                                 />
                             </div>
                         ))}
-
                 </div>
             </div>
+
         </section>
     );
+
 }

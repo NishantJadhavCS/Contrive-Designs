@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import "./css/Hero.css";
-import hero1 from "../assets/hero1.jpg";
-import hero2 from "../assets/hero2.jpg";
+import hero1 from "../assets/hero2.jpg";
+import hero2 from "../assets/site1/site1-1.jpg";
 
 export default function Hero() {
     const slides = [

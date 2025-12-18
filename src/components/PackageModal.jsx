@@ -10,7 +10,7 @@ const PACKAGE_LIST = [
     {
         id: 0,
         title: "1 BHK Standard Package (Upto 500 Sq.Ft)",
-        description: "Smart, space-saving preset themes…",
+        description: "Smart, space-saving preset themes curated for compact living.",
         price: "₹4,24,999/-",
         tableHeaders: ["Inclusion(s)", "Specification"],
         tableRows: [
@@ -28,9 +28,7 @@ const PACKAGE_LIST = [
         title: "2 BHK Standard Package (Upto 700 Sq.Ft)",
         description: "Turnkey preset designs curated by our team — built for style, function and fast delivery.",
         price: "₹5,94,999/-",
-
         tableHeaders: ["Inclusion(s)", "Specification"],
-
         tableRows: [
             {
                 "Inclusion(s)": "TV Unit",
@@ -62,7 +60,6 @@ const PACKAGE_LIST = [
             }
         ]
     }
-
 ];
 
 export default function PackageModal({ open, onClose, packageId }) {
@@ -85,18 +82,6 @@ export default function PackageModal({ open, onClose, packageId }) {
         if (!open) return;
         function onKey(e) {
             if (e.key === "Escape") onClose();
-            if (e.key !== "Tab") return;
-            const focusable = overlayRef.current.querySelectorAll(
-                "a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex='-1'])"
-            );
-            if (!focusable.length) return;
-            const first = focusable[0];
-            const last = focusable[focusable.length - 1];
-            if (e.shiftKey) {
-                if (document.activeElement === first) { e.preventDefault(); last.focus(); }
-            } else {
-                if (document.activeElement === last) { e.preventDefault(); first.focus(); }
-            }
         }
         document.addEventListener("keydown", onKey);
         return () => document.removeEventListener("keydown", onKey);
@@ -106,10 +91,9 @@ export default function PackageModal({ open, onClose, packageId }) {
 
     const data = PACKAGE_LIST.find((p) => p.id === packageId) || PACKAGE_LIST[0];
     const rows = data.tableRows || [];
+
     function highlightText(text = "") {
-        return text
-            // .replace(/\((.*?)\)/g, "(<strong>$1</strong>)")
-            .replace(/\bx2\b/g, "<strong>x2</strong>")
+        return text.replace(/\bx2\b/g, "<strong>x2</strong>");
     }
 
     return (
@@ -122,60 +106,62 @@ export default function PackageModal({ open, onClose, packageId }) {
             onMouseDown={(e) => { if (e.target === overlayRef.current) onClose(); }}
         >
             <div className="package-modal" role="document">
-                <header className="package-modal__head">
+                <button
+                    ref={closeBtnRef}
+                    className="package-modal__close"
+                    onClick={onClose}
+                    aria-label="Close dialog"
+                >
+                    ✕
+                </button>
+
+                <div className="package-modal__header-content">
                     <h3 className="package-modal__title">{data.title}</h3>
-                    <button
-                        ref={closeBtnRef}
-                        className="package-modal__close"
-                        onClick={onClose}
-                        aria-label="Close dialog"
-                        title="Close"
-                    >
-                        ✕
-                    </button>
-                </header>
+                    <div className="package-modal__price-badge">
+                        <span className="price-label">Just At</span>
+                        <span className="price-value">{data.price}</span>
+                        <span className="price-label">Only</span>
+                    </div>
+                </div>
 
                 <div className="package-modal__body">
-                    {/* <p className="package-modal__desc">{data.description}</p> */}
-                    <p className="package-modal__price">JUST AT {data.price} ONLY</p>
-
                     <div className="package-modal__table-wrap">
-                        <table className="package-modal__table" role="table">
+                        <table className="package-modal__table">
                             <thead>
                                 <tr>
-                                    {data.tableHeaders.map((h) => (
-                                        <th key={h}>{h}</th>
-                                    ))}
+                                    <th>Inclusion</th>
+                                    <th>Specifications</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {rows.map((r, i) => (
                                     <tr key={i}>
-                                        {data.tableHeaders.map((h) => (
-                                            <td
-                                                key={h}
-                                                dangerouslySetInnerHTML={{ __html: highlightText(r[h]) }}
-                                            />
-                                        ))}
+                                        <td className="col-inclusion">
+                                            {r["Inclusion(s)"].replace("x2", "")}
+                                            {r["Inclusion(s)"].includes("x2") && <span className="tag-x2">x2</span>}
+                                        </td>
+                                        <td
+                                            className="col-spec"
+                                            dangerouslySetInnerHTML={{ __html: highlightText(r["Specification"]) }}
+                                        />
                                     </tr>
                                 ))}
                             </tbody>
-
-
                         </table>
                     </div>
 
-                    <p className="package-note">
-                        (Door Handle, T-Patti ,Rafters and color selection of Paint and Laminate will be provided by the customer.)
-                        <br />
-                        <span className="highlight-note">
+                    <div className="package-note">
+                        <p className="note-text">
+                            (Door Handle, T-Patti, Rafters and color selection of Paint and Laminate will be provided by the customer.)
+                        </p>
+                        <p className="highlight-note">
                             Note: Any work beyond the listed scope will be charged separately and will void the 40-day delivery guarantee.
-                        </span>
-                    </p>
+                        </p>
+                    </div>
 
                     <div className="package-modal__actions">
                         <a
-                            className="button"
+                            className="button button-cta"
                             href={whatsappBase(`Hi, I'm interested in the ${data.title}. Please share inclusions, sample designs and pricing.`)}
                             target="_blank"
                             rel="noreferrer"
@@ -190,8 +176,6 @@ export default function PackageModal({ open, onClose, packageId }) {
                             </span>
                             <span className="button__text">Get In Touch</span>
                         </a>
-
-                        <button className="btn-outline" onClick={onClose}>Close</button>
                     </div>
                 </div>
             </div>

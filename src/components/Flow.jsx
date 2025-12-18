@@ -1,14 +1,11 @@
 import React from "react";
 import "./css/Flow.css";
 
-
 import meet from "../assets/flow/consultation.png";
 import clarity from "../assets/flow/clarity.png";
 import book from "../assets/flow/booking.png";
 import build from "../assets/flow/build.png";
 import happy from "../assets/flow/happy.png";
-import arrowGif from "../assets/flow/arrow.gif";
-
 
 const steps = [
     {
@@ -38,34 +35,59 @@ const steps = [
     },
 ];
 
-
-
 export default function Flow() {
     return (
-        <section className="flow">
-            <h3 className="flow__title">How It Works</h3>
+        <section className="flow-section">
 
+            {/* SECTION HEADER */}
+            <header
+                className="flow-header"
+                data-aos="fade-up"
+                data-aos-duration="700"
+            >
+                <h2 className="flow-title">How It Works</h2>
+                <p className="flow-subtitle">
+                    Your journey to a dream home in 5 simple steps.
+                </p>
+            </header>
 
-            <div className="flow__steps">
-                {steps.map((step, idx) => (
-                    <React.Fragment key={idx}>
-                        <div className="flow__step">
-                            <div className="flow__icon">
-                                <img src={step.icon} alt={step.title} />
+            <div className="flow-container">
+                <div
+                    className="flow-stepper"
+                    data-aos="fade-up"
+                    data-aos-delay="100"
+                >
+                    {/* The connecting line background (NO AOS) */}
+                    <div className="stepper-line"></div>
+
+                    {steps.map((step, idx) => (
+                        <div
+                            className="flow-step"
+                            key={idx}
+                            data-aos="fade-up"
+                            data-aos-delay={idx * 150}
+                            data-aos-duration="600"
+                        >
+                            <div className="step-marker">
+                                <div className="step-icon-wrapper">
+                                    <img
+                                        src={step.icon}
+                                        alt={step.title}
+                                        className="step-icon"
+                                    />
+                                </div>
+                                <div className="step-dot"></div>
                             </div>
-                            <h4 className="flow__step-title">{step.title}</h4>
-                            <p className="flow__step-desc">{step.desc}</p>
+
+                            <div className="step-content">
+                                <h3 className="step-title">{step.title}</h3>
+                                <p className="step-desc">{step.desc}</p>
+                            </div>
                         </div>
-
-                        {idx < steps.length - 1 && (
-                            <div className="flow__gif-arrow">
-                                <img src={arrowGif} alt="arrow" />
-                            </div>
-                        )}
-                    </React.Fragment>
-                ))}
+                    ))}
+                </div>
             </div>
-
         </section>
     );
+
 }

@@ -16,6 +16,8 @@
     z-index: 99999;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
     transition: transform .25s ease, box-shadow .25s ease;
+    animation: whatsapp-pop 0.8s cubic-bezier(.34, 1.56, .64, 1) both;
+    animation-delay: 0.4s;
 }
 
 .floating-whatsapp:hover,
@@ -45,5 +47,22 @@
         font-size: 24px;
         right: 12px;
         bottom: 14px;
+    }
+}
+
+@keyframes whatsapp-pop {
+    0% {
+        opacity: 0;
+        transform: scale(0.6);
+    }
+
+    60% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
     }
 }

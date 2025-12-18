@@ -48,7 +48,13 @@ export default function Navbar() {
         <>
             {/* ===== HEADER ===== */}
             <header className={`site-header ${showHeader ? "" : "site-header--hidden"}`}>
-                <div className="header-inner container">
+                <div
+                    className="header-inner container"
+                    data-aos="fade-down"
+                    data-aos-duration="600"
+                    data-aos-easing="ease-out"
+                    data-aos-once="true"
+                >
                     {/* MOBILE: HAMBURGER */}
                     <button className="menu-toggle-mobile" onClick={() => setOpen(true)}>
                         <svg width="26" height="20" viewBox="0 0 20 14">
@@ -94,11 +100,19 @@ export default function Navbar() {
             </aside>
 
             <div className={`tagline-banner ${showHeader ? "" : "tagline-banner--top"}`}>
-                <div className="tagline-banner__inner">
+                <div
+                    className="tagline-banner__inner"
+                    data-aos="fade-down"
+                    data-aos-duration="500"
+                    data-aos-easing="ease-out"
+                    data-aos-delay="150"
+                    data-aos-once="true"
+                >
                     <span className="tagline-banner__text">
                         Clever Designs Made Affordable.
                     </span>
                 </div>
+
             </div>
         </>
     );
