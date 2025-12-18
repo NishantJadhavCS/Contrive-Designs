@@ -32,14 +32,14 @@ function App() {
       <main>
         <Hero />
         <Services />
-        <Projects /> {/* Add Projects component here */}
+        <Projects /> 
         <Highlights />
+        <Flow />
         <Testimonials />
         <ScrollingBrands />
-        <Flow />
+      </main>
         <Footer />
         <FloatingWhatsAppButton />
-      </main>
     </>
   );
 }
