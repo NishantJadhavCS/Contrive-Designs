@@ -70,6 +70,7 @@ export default function Footer() {
                     <ul className="footer-nav" role="list">
                         <li><a href="#home">Home</a></li>
                         <li><a href="#packages">Packages</a></li>
+                        <li><a href="#projects">Projects</a></li>
                         <li><a href="#testimonials">Testimonials</a></li>
                     </ul>
                 </div>

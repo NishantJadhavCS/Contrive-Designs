@@ -5,7 +5,7 @@ import logo from "../assets/logo.png";
 
 export default function Navbar() {
     const [open, setOpen] = useState(false);
-    const [showHeader, setShowHeader] = useState(true); // true = visible
+    const [showHeader, setShowHeader] = useState(true);
     const lastY = useRef(typeof window !== "undefined" ? window.scrollY : 0);
     const ticking = useRef(false);
 
@@ -14,7 +14,7 @@ export default function Navbar() {
     const tagline = "Welcome to Contrive Designs";
 
     useEffect(() => {
-        const THRESHOLD = 10; // minimum px change to trigger
+        const THRESHOLD = 10;
         const handleScroll = () => {
             const currentY = window.scrollY || 0;
 
