@@ -1,7 +1,7 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Services from "./components/Services";
-import Projects from "./components/Projects"; // Import Projects component
+import Projects from "./components/Projects";
 import "./App.css";
 import Highlights from "./components/Highlights";
 import Footer from "./components/Footer";
@@ -32,14 +32,14 @@ function App() {
       <main>
         <Hero />
         <Services />
-        <Projects /> 
+        <Projects />
         <Highlights />
         <Flow />
         <Testimonials />
         <ScrollingBrands />
       </main>
-        <Footer />
-        <FloatingWhatsAppButton />
+      <Footer />
+      <FloatingWhatsAppButton />
     </>
   );
 }

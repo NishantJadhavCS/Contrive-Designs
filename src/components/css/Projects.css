@@ -37,8 +37,8 @@
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  /* Increased min-width for larger cards */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
+  /* Responsive min-width for larger cards */
   max-width: 1300px;
   /* Constrain width to keep cards from getting too wide but center them */
   margin: 0 auto;
